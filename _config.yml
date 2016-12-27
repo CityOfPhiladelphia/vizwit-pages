@@ -13,10 +13,10 @@ prose:
   siteurl: https://cityofphiladelphia.github.io/vizwit-pages/
   metadata:
     pages:
-      - name: title
+      - name: name
         field:
           element: text
-          label: Title
+          label: Name
       - name: description
         field:
           element: textarea
