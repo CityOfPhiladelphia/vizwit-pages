@@ -1,0 +1,9 @@
+title: VizWit
+baseurl: ''
+
+defaults:
+  - scope:
+      path: pages
+    values:
+      layout: default
+      permalink: /:basename/
