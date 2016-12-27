@@ -7,3 +7,15 @@ defaults:
     values:
       layout: default
       permalink: /:basename/
+
+prose:
+  rooturl: pages
+  siteurl: https://cityofphiladelphia.github.io/vizwit-pages/
+  metadata:
+    pages:
+      - name: title
+        field:
+          element: text
+      - name: description
+        field:
+          element: textarea
