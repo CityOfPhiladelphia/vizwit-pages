@@ -1,7 +1,7 @@
 ---
-name: Crime incidents 2015 - October 2016
+name: Crime Incidents 2006 - Present
 description: |
-  Philadelphia Police Department crime incidents from calendar year 2015 to October 2016,
+  Philadelphia Police Department crime incidents from calendar year 2006 to present,
   including Part I and Part II crimes. UCR codes are generalized and incident
   locations are rounded to the hundred block. These counts may not coincide exactly
   with data that is submitted to the Uniformed Crime Reporting (UCR) system.
@@ -13,8 +13,8 @@ description: |
       "description": "The date and time that the officer was dispatched to the scene.",
       "chartType": "datetime",
       "provider": "cartodb",
-      "domain": "timwis.carto.com",
-      "dataset": "crimes_2015_to_oct_2016",
+      "domain": "phl.carto.com",
+      "dataset": "pol_incidents_part1_part2",
       "groupBy": "date_trunc('month', dispatch_date)",
       "triggerField": "dispatch_date"
     }
@@ -24,15 +24,15 @@ description: |
 	  "title": "Police District",
 	  "chartType": "pie",
 	  "provider": "cartodb",
-	  "domain": "timwis.carto.com",
-	  "dataset": "crimes_2015_to_oct_2016",
+	  "domain": "phl.carto.com",
+	  "dataset": "pol_incidents_part1_part2",
 	  "groupBy": "dc_dist"
 	},
     {
       "title": "Police District",
       "provider": "cartodb",
-      "domain": "timwis.carto.com",
-      "dataset": "crimes_2015_to_oct_2016",
+      "domain": "phl.carto.com",
+      "dataset": "pol_incidents_part1_part2",
       "chartType": "choropleth",
       "groupBy": "dc_dist",
       "boundaries": "https://timwis.carto.com/api/v2/sql?q=select+*+from+public.police_district_boundaries&format=geojson",
@@ -46,8 +46,8 @@ description: |
 	  "description": "The generalized text for the crime code",
 	  "chartType": "bar",
 	  "provider": "cartodb",
-	  "domain": "timwis.carto.com",
-	  "dataset": "crimes_2015_to_oct_2016",
+	  "domain": "phl.carto.com",
+	  "dataset": "pol_incidents_part1_part2",
 	  "groupBy": "text_general_code"
 	}
   ],
@@ -56,8 +56,8 @@ description: |
 	  "title": "Crime Incidents",
 	  "chartType": "table",
 	  "provider": "cartodb",
-	  "domain": "timwis.carto.com",
-	  "dataset": "crimes_2015_to_oct_2016",
+	  "domain": "phl.carto.com",
+	  "dataset": "pol_incidents_part1_part2",
 	  "columnsToHide": [
 		  "cartodb_id",
 		  "the_geom",
