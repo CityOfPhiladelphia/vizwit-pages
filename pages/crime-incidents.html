@@ -5,6 +5,7 @@ description: |
   including Part I and Part II crimes. UCR codes are generalized and incident
   locations are rounded to the hundred block. These counts may not coincide exactly
   with data that is submitted to the Uniformed Crime Reporting (UCR) system.
+download: https://www.opendataphilly.org/dataset/crime-incidents
 ---
 [
   [
@@ -12,10 +13,10 @@ description: |
       "title": "Dispatch Date",
       "description": "The date and time that the officer was dispatched to the scene.",
       "chartType": "datetime",
-      "provider": "cartodb",
+      "provider": "carto",
       "domain": "phl.carto.com",
       "dataset": "pol_incidents_part1_part2",
-      "groupBy": "date_trunc('month', dispatch_date)",
+      "groupBy": "date_trunc('month', dispatch_date_time)",
       "triggerField": "dispatch_date"
     }
   ],
@@ -23,14 +24,14 @@ description: |
     {
       "title": "Police District",
       "chartType": "pie",
-      "provider": "cartodb",
+      "provider": "carto",
       "domain": "phl.carto.com",
       "dataset": "pol_incidents_part1_part2",
       "groupBy": "dc_dist"
     },
     {
       "title": "Police District",
-      "provider": "cartodb",
+      "provider": "carto",
       "domain": "phl.carto.com",
       "dataset": "pol_incidents_part1_part2",
       "chartType": "choropleth",
@@ -45,7 +46,7 @@ description: |
       "title": "General Crime Category",
       "description": "The generalized text for the crime code",
       "chartType": "bar",
-      "provider": "cartodb",
+      "provider": "carto",
       "domain": "phl.carto.com",
       "dataset": "pol_incidents_part1_part2",
       "groupBy": "text_general_code"
@@ -55,11 +56,12 @@ description: |
     {
       "title": "Crime Incidents",
       "chartType": "table",
-      "provider": "cartodb",
+      "provider": "carto",
       "domain": "phl.carto.com",
       "dataset": "pol_incidents_part1_part2",
       "columnsToHide": [
         "cartodb_id",
+        "objectid",
         "the_geom",
         "the_geom_webmercator"
       ]
