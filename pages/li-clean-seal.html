@@ -1,0 +1,78 @@
+---
+title: L&I Clean and Seals
+description: |
+  Address, date of abatement, and more for properties that
+  have been cleaned and sealed by the L&I Clean & Seal Unit.
+download: 
+---
+[
+  [
+    {
+      "title": "Action Date",
+      "description": "The date that an action was entered into the L+I Hansen database.",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "li_clean_seal",
+      "chartType": "datetime",
+      "groupBy": "date_trunc('month', actdate)",
+      "triggerField": "actdate"
+    }
+  ],
+  [
+    {
+      "title": "Clean & Seal Review Status",
+      "description": "The status of the Clean & Seal action. When a log is added, the action will be reviewed as incomplete until the action is completed. Once an action is taken (such as a Clean & Seal), then this action is reviewed and marked as Approved, An action can also be waived or conditionally approved.",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "li_clean_seal",
+      "chartType": "pie",
+      "groupBy": "cleansealreviewstatus"
+    },
+    {
+      "title": "Case Resolution",
+      "description": "If a case has been resolved, the L+I defined resolution code.",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "li_clean_seal",
+      "chartType": "pie",
+      "groupBy": "caseresolution"
+    }
+  ],
+  [
+    {
+      "title":  "Census Tract",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "li_clean_seal",
+      "chartType": "choropleth",
+      "groupBy": "censustract",
+      "boundaries": "https://phl.carto.com/api/v2/sql?q=select+*+from+census_tracts_2010&format=geojson",
+      "boundariesLabel": "namelsad10",
+      "boundariesId": "name10_padded"
+    },
+    {
+      "title": "Owner Name",
+      "description": "Current owner of the property",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "li_clean_seal",
+      "chartType": "bar",
+      "groupBy": "ownername"
+    }
+  ],
+  [
+    {
+      "title": "Clean and Seals",
+      "chartType": "table",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "li_clean_seal",
+      "columnsToHide": [
+        "cartodb_id",
+        "objectid",
+        "the_geom",
+        "the_geom_webmercator"
+      ]
+    }
+  ]
+]
