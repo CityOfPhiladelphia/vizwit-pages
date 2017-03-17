@@ -1,0 +1,83 @@
+---
+title: L&I Business Licenses
+description: |
+  Licenses are required for individuals and businesses to engage in select
+  commercial activities (i.e. to sell goods, food, or for plumbers and
+  contractors). This dataset includes information on application license type,
+  applicant name, property for which the license would be issued, application
+  data, issue date and expiration date.
+
+  Note: Some business licenses are incorrectly missing the associated address
+  in this dataset, which may limit searching.
+---
+[
+  [
+    {
+      "title": "Issue Date",
+      "description": "The date the license was issued.",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "li_business_licenses",
+      "chartType": "datetime",
+      "groupBy": "date_trunc('month', to_date(issuedate, 'MM/DD/YYYY HH24:MI:SS'))",
+      "triggerField": "issuedate"
+    }
+  ],
+  [
+    {
+      "title": "License Type",
+      "description": "The type of license",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "li_business_licenses",
+      "chartType": "bar",
+      "groupBy": "licensetype"
+    },
+    {
+      "title": "License Status",
+      "description": "License Status",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "li_business_licenses",
+      "chartType": "pie",
+      "groupBy": "licensestatus"
+    }
+  ],
+  [
+    {
+      "title": "Legal Entity Type",
+      "description": "",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "li_business_licenses",
+      "chartType": "pie",
+      "groupBy": "legalentitytype"
+    },
+    {
+      "title":  "Census Tract",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "li_violations",
+      "chartType": "choropleth",
+      "groupBy": "censustract",
+      "boundaries": "https://phl.carto.com/api/v2/sql?q=select+*+from+census_tracts_2010&format=geojson",
+      "boundariesLabel": "namelsad10",
+      "boundariesId": "name10_padded"
+    }
+  ],
+  [
+    {
+      "title": "Business Licenses",
+      "chartType": "table",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "li_business_licenses",
+      "columnsToHide": [
+        "cartodb_id",
+        "objectid",
+        "the_geom",
+        "the_geom_webmercator"
+      ]
+    }
+  ]
+]

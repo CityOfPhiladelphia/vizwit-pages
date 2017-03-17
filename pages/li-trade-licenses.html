@@ -1,0 +1,57 @@
+---
+title: L&I Trade Licenses
+description: |
+  Information regarding individuals who have applied for trades licenses such
+  as General Contractor, Master Plumber, and more. Information includes the
+  individual's name, license number, license status issue date, expiration
+  date, company name, and revenue code.
+---
+[
+  [
+    {
+      "title": "Issue Date",
+      "description": "The date the license was issued.",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "li_trade_licenses",
+      "chartType": "datetime",
+      "groupBy": "date_trunc('month', to_date(issuedate, 'MM/DD/YYYY HH24:MI:SS'))",
+      "triggerField": "issuedate"
+    }
+  ],
+  [
+    {
+      "title": "License Type",
+      "description": "The type of license",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "li_trade_licenses",
+      "chartType": "bar",
+      "groupBy": "licensetype"
+    },
+    {
+      "title": "License Status",
+      "description": "License Status",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "li_trade_licenses",
+      "chartType": "pie",
+      "groupBy": "licensestatus"
+    }
+  ],
+  [
+    {
+      "title": "Trade Licenses",
+      "chartType": "table",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "li_trade_licenses",
+      "columnsToHide": [
+        "cartodb_id",
+        "objectid",
+        "the_geom",
+        "the_geom_webmercator"
+      ]
+    }
+  ]
+]

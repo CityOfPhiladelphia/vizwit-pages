@@ -1,0 +1,74 @@
+---
+title: L&I Service Requests
+description: |
+  Service requests that were entered via 311 or by an individual in the
+  department including a description of the request/complaint, the
+  priority/type of the complaint, date of scheduled inspection, who the
+  assigned inspector is, and what the outcome of the inspection was, if a case
+  or if a case is not required, as well as information about the source of the
+  request.
+---
+[
+  [
+    {
+      "title": "Call Date",
+      "description": "Date and time indicating when the service request was logged.",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "li_serv_req",
+      "chartType": "datetime",
+      "groupBy": "date_trunc('month', sr_calldate)",
+      "triggerField": "sr_calldate"
+    }
+  ],
+  [
+    {
+      "title": "Service Request Problem Description",
+      "description": "Description for the customer problem definition",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "li_serv_req",
+      "chartType": "bar",
+      "groupBy": "sr_problemdesc"
+    },
+    {
+      "title": "Service Request Resolution Description",
+      "description": "License Status",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "li_serv_req",
+      "chartType": "bar",
+      "groupBy": "sr_resolutiondesc"
+    }
+  ],
+  [
+    {
+     "title":  "Census Tract",
+     "provider": "carto",
+     "domain": "phl.carto.com",
+     "dataset": "li_violations",
+     "chartType": "choropleth",
+     "groupBy": "censustract",
+     "boundaries": "https://phl.carto.com/api/v2/sql?q=select+*+from+census_tracts_2010&format=geojson",
+     "boundariesLabel": "namelsad10",
+     "boundariesId": "name10_padded"
+    },
+    {
+    }
+  ],
+  [
+    {
+      "title": "Service Requests",
+      "chartType": "table",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "li_serv_req",
+      "columnsToHide": [
+        "cartodb_id",
+        "objectid",
+        "the_geom",
+        "the_geom_webmercator"
+      ]
+    }
+  ]
+]
