@@ -1,0 +1,103 @@
+---
+title: Employee Salaries & Overtime
+description: |
+  As of December 31, 2016
+
+  Note: Since employee counts fluctuate throughout the year, the sum of annual
+  salaries does not reflect the total budgeted amount.
+
+---
+[
+  [
+    {
+      "title": "Total Salaries by Department",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "employee_salaries",
+      "chartType": "bar",
+      "groupBy": "department",
+      "triggerField": "department",
+      "aggregateFunction": "sum",
+      "aggregateField": "annual_salary",
+      "baseFilters": [
+        {
+          "field": "calendar_year",
+          "expression": {
+            "type": "=",
+            "value": "2016"
+          }
+        },
+        {
+          "field": "quarter",
+          "expression": {
+            "type": "=",
+            "value": "4"
+          }
+        }
+      ]
+    }
+  ],
+  [
+    {
+      "title": "Total YTD Overtimes Gross by Department",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "employee_salaries",
+      "chartType": "bar",
+      "groupBy": "department",
+      "triggerField": "department",
+      "aggregateFunction": "sum",
+      "aggregateField": "round(CAST(ytd_overtime_gro as numeric), 2)",
+      "baseFilters": [
+        {
+          "field": "calendar_year",
+          "expression": {
+            "type": "=",
+            "value": "2016"
+          }
+        },
+        {
+          "field": "quarter",
+          "expression": {
+            "type": "=",
+            "value": "4"
+          }
+        }
+      ]
+    }
+  ],
+  [
+    {
+      "title": "Employee Salaries",
+      "chartType": "table",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "employee_salaries",
+      "columnsToHide": [
+        "cartodb_id",
+        "objectid",
+        "the_geom",
+        "the_geom_webmercator",
+        "oid_",
+        "calendar_year",
+        "quarter"
+      ],
+      "baseFilters": [
+        {
+          "field": "calendar_year",
+          "expression": {
+            "type": "=",
+            "value": "2016"
+          }
+        },
+        {
+          "field": "quarter",
+          "expression": {
+            "type": "=",
+            "value": "4"
+          }
+        }
+      ]
+    }
+  ]
+]
