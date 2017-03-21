@@ -1,0 +1,66 @@
+---
+title: Parking Violations
+description:
+    This data set reflects parking violations reported by authorized agencies
+    in Philadelphia.  The data represented below is a sample of parking
+    violations occurring between 2012-2015 with license plate numbers anonymized
+    for privacy.
+download: https://phl.carto.com/api/v2/sql?filename=parking_violations&q=SELECT+*+FROM+(SELECT+*+FROM+phl.parking_violations)+as+subq+&api_key=0bf2b6e314df588f664ec1976d88235a94282fe9&skipfields=the_geom_webmercator&format=csv
+---
+[
+  [
+    {
+      "title":"Issue Date and Time",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "parking_violations",
+      "chartType": "datetime",
+      "groupBy": "date_trunc('month', issue_date_and_time)",
+      "triggerField": "issue_date_and_time"
+    },
+    {
+      "title":"Violation Location--Census Tracts 2010-2013",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "parking_violations",
+      "chartType": "choropleth",
+      "groupBy": "fine",
+      "boundaries": "https://phl.carto.com/api/v2/sql?q=select+*+from+census_tracts_2010&format=geojson",
+      "boundariesLabel": "namelsad10",
+      "boundariesId": "name10_padded"
+    }
+  ],
+  [
+    {
+      "title":"Violation Description",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "parking_violations",
+      "chartType": "pie",
+      "groupBy": "violation_description"
+    },
+    {
+      "title":"Issuing Agency",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "parking_violations",
+      "chartType": "pie",
+      "groupBy": "issuing_agency"
+    }
+  ],
+  [
+    {
+      "title": "Parking Violations",
+      "chartType": "table",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "parking_violations",
+      "columnsToHide": [
+        "cartodb_id",
+        "objectid",
+        "the_geom",
+        "the_geom_webmercator"
+      ]
+    }
+  ]
+]

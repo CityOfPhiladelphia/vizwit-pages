@@ -1,0 +1,53 @@
+---
+title: Shooting Victims
+description:
+    Criminal Shooting Victims and Officer Involved Shootings from 1/1/15 Through Yesterday
+download: https://phl.carto.com/api/v2/sql?filename=shootings&q=SELECT+*+FROM+(SELECT+*+FROM+phl.shootings)+as+subq+&api_key=0bf2b6e314df588f664ec1976d88235a94282fe9&skipfields=the_geom_webmercator&format=csv
+---
+
+[
+  [
+    {
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "shootings",
+      "chartType": "datetime",
+      "groupBy": "date_trunc('month', date_)",
+      "triggerField": "date_"
+    }
+  ],
+  [
+    {
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "shootings",
+      "chartType": "choropleth",
+      "groupBy": "dist",
+      "boundaries": "https://phl.carto.com/api/v2/sql?q=select+*+from+police_districts&format=geojson",
+      "boundariesLabel": "location",
+      "boundariesId": "dist_numc"
+    },
+    {
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "shootings",
+      "chartType": "bar",
+      "groupBy": "officer_involved"
+    }
+  ],
+  [
+    {
+      "title": "Officer Involved Shootings",
+      "chartType": "table",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "shootings",
+      "columnsToHide": [
+        "cartodb_id",
+        "objectid",
+        "the_geom",
+        "the_geom_webmercator"
+      ]
+    }
+  ]
+]

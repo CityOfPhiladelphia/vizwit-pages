@@ -1,0 +1,80 @@
+---
+title: Vehicle & Pedestrian Investigations
+description:
+   2014 - Present. Updated daily with 14-day lag for operational approval
+   processes.
+download: https://phl.carto.com/api/v2/sql?filename=car_ped_stops&q=SELECT+*+FROM+(SELECT+*+FROM+phl.car_ped_stops)+as+subq+&api_key=0bf2b6e314df588f664ec1976d88235a94282fe9&skipfields=the_geom_webmercator&format=csv
+---
+[
+  [
+   {
+     "provider": "carto",
+     "domain": "phl.carto.com",
+     "dataset": "car_ped_stops",
+     "chartType": "pie",
+     "groupBy": "weekday"
+   },
+    { "title":"Number of Investigations by Date/Time",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "car_ped_stops",
+      "chartType": "datetime",
+      "groupBy": "date_trunc('month', datetimeoccur)",
+      "triggerField": "datetimeoccur"
+    }
+  ],
+  [
+    {
+      "title":"Numberof Investigations by Police District",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "car_ped_stops",
+      "chartType": "choropleth",
+      "groupBy": "districtoccur",
+      "boundaries": "https://phl.carto.com/api/v2/sql?q=select+*+from+police_districts&format=geojson",
+      "boundariesLabel": "dist_num",
+      "boundariesId": "dist_numc"
+    },
+    {
+      "title": "Race",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "car_ped_stops",
+      "chartType": "pie",
+      "groupBy": "race"
+    }
+  ],
+  [
+    {
+      "title": "Gender",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "car_ped_stops",
+      "chartType": "pie",
+      "groupBy": "gender"
+    },
+    {
+      "title": "Stop Type",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "car_ped_stops",
+      "chartType": "pie",
+      "groupBy": "stoptype"
+    }
+  ],
+  [
+    {
+      "title": "Vehicle and Pedestrian Investigations",
+      "chartType": "table",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "car_ped_stops",
+      "columnsToHide": [
+        "cartodb_id",
+        "objectid",
+        "the_geom",
+        "the_geom_webmercator"
+      ]
+    }
+  ]
+]
