@@ -1,10 +1,10 @@
 ---
 title: Crime Incidents 2006 - Present
 description: |
-  Philadelphia Police Department crime incidents from calendar year 2006 to present,
+  <p>Philadelphia Police Department crime incidents from calendar year 2006 to present,
   including Part I and Part II crimes. UCR codes are generalized and incident
   locations are rounded to the hundred block. These counts may not coincide exactly
-  with data that is submitted to the Uniformed Crime Reporting (UCR) system.
+  with data that is submitted to the Uniformed Crime Reporting (UCR) system.</p>
 download: https://www.opendataphilly.org/dataset/crime-incidents
 ---
 [
@@ -15,7 +15,7 @@ download: https://www.opendataphilly.org/dataset/crime-incidents
       "chartType": "datetime",
       "provider": "carto",
       "domain": "phl.carto.com",
-      "dataset": "pol_incidents_part1_part2",
+      "dataset": "incidents_part1_part2",
       "groupBy": "date_trunc('month', dispatch_date_time)",
       "triggerField": "dispatch_date"
     }
@@ -26,14 +26,14 @@ download: https://www.opendataphilly.org/dataset/crime-incidents
       "chartType": "pie",
       "provider": "carto",
       "domain": "phl.carto.com",
-      "dataset": "pol_incidents_part1_part2",
+      "dataset": "incidents_part1_part2",
       "groupBy": "dc_dist"
     },
     {
       "title": "Police District",
       "provider": "carto",
       "domain": "phl.carto.com",
-      "dataset": "pol_incidents_part1_part2",
+      "dataset": "incidents_part1_part2",
       "chartType": "choropleth",
       "groupBy": "dc_dist",
       "boundaries": "https://phl.carto.com/api/v2/sql?q=select+*+from+police_districts&format=geojson",
@@ -48,8 +48,11 @@ download: https://www.opendataphilly.org/dataset/crime-incidents
       "chartType": "bar",
       "provider": "carto",
       "domain": "phl.carto.com",
-      "dataset": "pol_incidents_part1_part2",
+      "dataset": "incidents_part1_part2",
       "groupBy": "text_general_code"
+    },
+    {
+      "title": "Number of Incidents by Hour"
     }
   ],
   [
@@ -58,7 +61,7 @@ download: https://www.opendataphilly.org/dataset/crime-incidents
       "chartType": "table",
       "provider": "carto",
       "domain": "phl.carto.com",
-      "dataset": "pol_incidents_part1_part2",
+      "dataset": "incidents_part1_part2",
       "columnsToHide": [
         "cartodb_id",
         "objectid",

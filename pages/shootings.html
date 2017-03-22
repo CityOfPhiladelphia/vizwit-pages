@@ -1,13 +1,15 @@
 ---
 title: Shooting Victims
 description:
-    Criminal Shooting Victims and Officer Involved Shootings from 1/1/15 Through Yesterday
+  <p>Criminal Shooting Victims and Officer Involved Shootings from 1/1/15
+  Through Yesterday</p>
 download: https://phl.carto.com/api/v2/sql?filename=shootings&q=SELECT+*+FROM+(SELECT+*+FROM+phl.shootings)+as+subq+&api_key=0bf2b6e314df588f664ec1976d88235a94282fe9&skipfields=the_geom_webmercator&format=csv
 ---
 
 [
   [
     {
+      "title": "Number of Shooting Victims by Date",
       "provider": "carto",
       "domain": "phl.carto.com",
       "dataset": "shootings",
@@ -18,6 +20,7 @@ download: https://phl.carto.com/api/v2/sql?filename=shootings&q=SELECT+*+FROM+(S
   ],
   [
     {
+      "title": "Number of Shootings by Police District",
       "provider": "carto",
       "domain": "phl.carto.com",
       "dataset": "shootings",
@@ -28,6 +31,8 @@ download: https://phl.carto.com/api/v2/sql?filename=shootings&q=SELECT+*+FROM+(S
       "boundariesId": "dist_numc"
     },
     {
+      "title": "Number of Shooting Victims by Officer Involved",
+      "description": "Whether a Police Officer was involved in the shooting.",
       "provider": "carto",
       "domain": "phl.carto.com",
       "dataset": "shootings",
@@ -37,7 +42,7 @@ download: https://phl.carto.com/api/v2/sql?filename=shootings&q=SELECT+*+FROM+(S
   ],
   [
     {
-      "title": "Officer Involved Shootings",
+      "title": "Shooting Victims",
       "chartType": "table",
       "provider": "carto",
       "domain": "phl.carto.com",
