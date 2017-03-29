@@ -16,8 +16,19 @@ download: https://www.opendataphilly.org/dataset/licenses-and-inspections-trade-
       "domain": "phl.carto.com",
       "dataset": "li_trade_licenses",
       "chartType": "datetime",
-      "groupBy": "date_trunc('month', to_date(issuedate, 'MM/DD/YYYY HH24:MI:SS'))",
-      "triggerField": "issuedate"
+      "groupBy": "date_trunc('year', to_date(issuedate, 'MM/DD/YYYY HH24:MI:SS'))",
+      "triggerField": "issuedate",
+      "baseFilters":
+      [
+        {
+          "field": "issuedate",
+          "expression":
+          {
+              "type": "!=",
+              "value": ""
+          }
+        }
+      ]
     }
   ],
   [
