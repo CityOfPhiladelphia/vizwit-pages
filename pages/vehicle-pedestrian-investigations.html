@@ -7,13 +7,6 @@ download: https://phl.carto.com/api/v2/sql?filename=car_ped_stops&q=SELECT+*+FRO
 ---
 [
   [
-   {
-     "provider": "carto",
-     "domain": "phl.carto.com",
-     "dataset": "car_ped_stops",
-     "chartType": "bar",
-     "groupBy": "weekday"
-   },
     { "title":"Number of Investigations by Date/Time",
       "provider": "carto",
       "domain": "phl.carto.com",
@@ -25,6 +18,13 @@ download: https://phl.carto.com/api/v2/sql?filename=car_ped_stops&q=SELECT+*+FRO
   ],
   [
     {
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "car_ped_stops",
+      "chartType": "bar",
+      "groupBy": "weekday"
+    },
+    {
       "title":"Numberof Investigations by Police District",
       "provider": "carto",
       "domain": "phl.carto.com",
@@ -34,7 +34,9 @@ download: https://phl.carto.com/api/v2/sql?filename=car_ped_stops&q=SELECT+*+FRO
       "boundaries": "https://phl.carto.com/api/v2/sql?q=select+*+from+police_districts&format=geojson",
       "boundariesLabel": "dist_num",
       "boundariesId": "dist_numc"
-    },
+    }
+  ],
+  [
     {
       "title": "Race",
       "provider": "carto",
@@ -42,9 +44,7 @@ download: https://phl.carto.com/api/v2/sql?filename=car_ped_stops&q=SELECT+*+FRO
       "dataset": "car_ped_stops",
       "chartType": "pie",
       "groupBy": "race"
-    }
-  ],
-  [
+    },
     {
       "title": "Gender",
       "provider": "carto",
@@ -69,6 +69,7 @@ download: https://phl.carto.com/api/v2/sql?filename=car_ped_stops&q=SELECT+*+FRO
       "provider": "carto",
       "domain": "phl.carto.com",
       "dataset": "car_ped_stops",
+      "order": "datetimeoccur desc",
       "columnsToHide": [
         "cartodb_id",
         "objectid",
