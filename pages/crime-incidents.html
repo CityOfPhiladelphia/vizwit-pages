@@ -22,12 +22,13 @@ download: https://www.opendataphilly.org/dataset/crime-incidents
   ],
   [
     {
-      "title": "Police District",
-      "chartType": "pie",
+      "title": "Location (block)",
+      "description": "Location of incidents generalized by street block",
+      "chartType": "bar",
       "provider": "carto",
       "domain": "phl.carto.com",
       "dataset": "incidents_part1_part2",
-      "groupBy": "dc_dist"
+      "groupBy": "location_block"
     },
     {
       "title": "Police District",
@@ -44,7 +45,7 @@ download: https://www.opendataphilly.org/dataset/crime-incidents
   [
     {
       "title": "General Crime Category",
-      "description": "The generalized text for the crime code",
+      "description": "Description of the generalized crime code",
       "chartType": "bar",
       "provider": "carto",
       "domain": "phl.carto.com",
@@ -59,6 +60,7 @@ download: https://www.opendataphilly.org/dataset/crime-incidents
       "provider": "carto",
       "domain": "phl.carto.com",
       "dataset": "incidents_part1_part2",
+      "order": "dispatch_date_time desc",
       "columnsToHide": [
         "cartodb_id",
         "objectid",
