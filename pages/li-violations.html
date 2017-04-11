@@ -15,7 +15,16 @@ download: https://www.opendataphilly.org/dataset/licenses-and-inspections-violat
       "dataset": "li_violations",
       "chartType": "datetime",
       "groupBy": "date_trunc('month', violationdate)",
-      "triggerField": "violationdate"
+      "triggerField": "violationdate",
+      "baseFilters": [
+        {
+          "field": "violationdate",
+          "expression": {
+            "type": "<=",
+            "value": "now()"
+          }
+        }
+      ]
     }
   ],
   [
