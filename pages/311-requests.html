@@ -16,7 +16,7 @@ download: https://www.opendataphilly.org/dataset/311-service-and-information-req
       "domain": "phl.carto.com",
       "dataset": "public_cases_fc",
       "chartType": "datetime",
-      "groupBy": "date_trunc('month', requested_datetime)",
+      "groupBy": "date_trunc('month', to_date(requested_dateti, 'MM/DD/YYYY HH24:MI:SS'))",
       "triggerField": "requested_datetime"
     }
   ],
@@ -50,7 +50,7 @@ download: https://www.opendataphilly.org/dataset/311-service-and-information-req
       "domain": "phl.carto.com",
       "dataset": "public_cases_fc",
       "chartType": "bar",
-      "groupBy": "agency_responsible"
+      "groupBy": "agency_responsib"
     },
     {
       "title": "Status",
@@ -68,7 +68,7 @@ download: https://www.opendataphilly.org/dataset/311-service-and-information-req
       "chartType": "table",
       "provider": "carto",
       "domain": "phl.carto.com",
-      "order": "requested_datetime desc",
+      "order": "requested_dateti desc",
       "dataset": "public_cases_fc",
       "columnsToHide": [
         "cartodb_id",
