@@ -1,7 +1,7 @@
 ---
 title: Employee Salaries & Overtime
 description: |
-  <p>As of December 31, 2016</p>
+  <p>As of March 31, 2017</p>
 
   <p>Note: Since employee counts fluctuate throughout the year, the sum of annual
     salaries does not reflect the total budgeted amount.</p>
@@ -24,14 +24,14 @@ download: https://www.opendataphilly.org/dataset/employee-salaries-overtime
           "field": "calendar_year",
           "expression": {
             "type": "=",
-            "value": "2016"
+            "value": "2017"
           }
         },
         {
           "field": "quarter",
           "expression": {
             "type": "=",
-            "value": "4"
+            "value": "1"
           }
         }
       ]
@@ -53,14 +53,14 @@ download: https://www.opendataphilly.org/dataset/employee-salaries-overtime
           "field": "calendar_year",
           "expression": {
             "type": "=",
-            "value": "2016"
+            "value": "2017"
           }
         },
         {
           "field": "quarter",
           "expression": {
             "type": "=",
-            "value": "4"
+            "value": "1"
           }
         }
       ]
@@ -73,6 +73,7 @@ download: https://www.opendataphilly.org/dataset/employee-salaries-overtime
       "provider": "carto",
       "domain": "phl.carto.com",
       "dataset": "employee_salaries",
+      "order": "annual_salary desc",
       "columnsToHide": [
         "cartodb_id",
         "objectid",
@@ -87,14 +88,14 @@ download: https://www.opendataphilly.org/dataset/employee-salaries-overtime
           "field": "calendar_year",
           "expression": {
             "type": "=",
-            "value": "2016"
+            "value": "2017"
           }
         },
         {
           "field": "quarter",
           "expression": {
             "type": "=",
-            "value": "4"
+            "value": "1"
           }
         }
       ]
