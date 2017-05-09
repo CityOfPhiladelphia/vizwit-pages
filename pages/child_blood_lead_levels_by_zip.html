@@ -1,0 +1,72 @@
+---
+title: Child Blood Lead Levels by Zip Code
+description: |
+  <p>The following table shows the number of children under the age of 6 with
+      newly identified confirmed (venous) BLLs ≥5µg/dL, the total number of
+      children under the age of 6 screened for lead poisoning, and the percent
+      of children screened with BLLs ≥5µg/dL during 2015 by ZIP code.</p>
+
+  <p>Disclaimer: Numbers are subject to change due to reporting, data quality,
+      and data cleaning. Rates can vary depending on lead poisoning definitions.
+      </p>
+download: https://opendataphilly.org
+---
+[
+  [
+    {
+      "title":  "Percentage of screened children with blood lead levels > 5 micrograms per deciliter",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "child_blood_lead_levels_by_zip",
+      "chartType": "choropleth",
+      "groupBy": "zip_code",
+      "boundaries": "https://phl.carto.com/api/v2/sql?q=select+*+from+zip_codes&format=geojson",
+      "boundariesLabel": "code",
+      "boundariesId": "code",
+      "valueField": "max(percent_children_with_bll_gte_5_micrograms_per_deciliter)"
+    }
+  ],
+  [
+    {
+      "title":  "Number of screened children with blood lead levels > 5 micrograms per deciliter",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "child_blood_lead_levels_by_zip",
+      "chartType": "choropleth",
+      "groupBy": "zip_code",
+      "boundaries": "https://phl.carto.com/api/v2/sql?q=select+*+from+zip_codes&format=geojson",
+      "boundariesLabel": "code",
+      "boundariesId": "code",
+      "valueField": "max(children_with_bll_gte_5_micrograms_per_deciliter)"
+    },
+    {
+      "title":  "Total number of children younger than 6 screened",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "child_blood_lead_levels_by_zip",
+      "chartType": "choropleth",
+      "groupBy": "zip_code",
+      "boundaries": "https://phl.carto.com/api/v2/sql?q=select+*+from+zip_codes&format=geojson",
+      "boundariesLabel": "code",
+      "boundariesId": "code",
+      "valueField": "max(children_lt_6_screened)"
+
+    }
+  ],
+  [
+    {
+      "title": "Childhood Lead Levels By Census Tract",
+      "chartType": "table",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "order": "percent_children_with_bll_gte_5_micrograms_per_deciliter desc nulls last",
+      "dataset": "child_blood_lead_levels_by_zip",
+      "columnsToHide":
+      [
+        "cartodb_id",
+        "the_geom",
+        "the_geom_webmercator"
+      ]
+    }
+  ]
+]
