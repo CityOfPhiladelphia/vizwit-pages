@@ -23,7 +23,7 @@ download: https://opendataphilly.org
       "boundaries": "https://phl.carto.com/api/v2/sql?q=select+*+from+zip_codes&format=geojson",
       "boundariesLabel": "code",
       "boundariesId": "code",
-      "valueField": "max(percent_children_with_bll_gte_5_micrograms_per_deciliter)"
+      "valueField": "max(percent_bll_gte_5_mg_per_dec)"
     }
   ],
   [
@@ -37,7 +37,7 @@ download: https://opendataphilly.org
       "boundaries": "https://phl.carto.com/api/v2/sql?q=select+*+from+zip_codes&format=geojson",
       "boundariesLabel": "code",
       "boundariesId": "code",
-      "valueField": "max(children_with_bll_gte_5_micrograms_per_deciliter)"
+      "valueField": "max(bll_gte_5_mg_per_dec)"
     },
     {
       "title":  "Total number of children younger than 6 screened",
@@ -59,7 +59,7 @@ download: https://opendataphilly.org
       "chartType": "table",
       "provider": "carto",
       "domain": "phl.carto.com",
-      "order": "percent_children_with_bll_gte_5_micrograms_per_deciliter desc nulls last",
+      "order": "percent_bll_gte_5_mg_per_dec desc nulls last",
       "dataset": "child_blood_lead_levels_by_zip",
       "columnsToHide":
       [
