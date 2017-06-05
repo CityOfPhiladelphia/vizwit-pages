@@ -47,7 +47,7 @@ download: https://www.opendataphilly.org/dataset/employee-salaries-overtime
       "groupBy": "department",
       "triggerField": "department",
       "aggregateFunction": "sum",
-      "aggregateField": "round(CAST(ytd_overtime_gro as numeric), 2)",
+      "aggregateField": "round(CAST(ytd_overtime_gross as numeric), 2)",
       "baseFilters": [
         {
           "field": "calendar_year",
