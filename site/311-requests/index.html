@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>311 Service and Information Requests</title>
+
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Arimo:400,700,400italic">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.9/css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.2/leaflet.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/backbone.modal/1.1.5/backbone.modal-min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/backbone.modal/1.1.5/backbone.modal.theme-min.css">
+    <link rel="stylesheet" href="https://cityofphiladelphia.github.io/vizwit/styles/main.css">
+  </head>
+  <body>
+    <!-- Google Tag Manager [phila.gov] -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MC6CR2"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <script type="text/javascript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MC6CR2');</script>
+    <!-- End Google Tag Manager --> 
+    
+    <div class="header-container">
+      <div class="container" id="page-header">
+        <div class="row">
+          <div class="col-sm-10">
+            <h1 class="title">311 Service and Information Requests</h1>
+            <p class="description"><p>This represents service and information requests since December 8th, 2014
+    submitted to Philly311 via the 311 mobile application, calls, walk-ins,
+    emails, the 311 website or social media.
+  </p>
+</p>
+          </div>
+          <div class="col-sm-2">
+            <div class="btn-group pull-right navigation" role="group">
+              <a href="https://www.opendataphilly.org/dataset/311-service-and-information-requests" class="btn btn-default">Download</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <script type="application/json" class="vizwit">
+[
+  [
+    {
+      "title": "Requested Date",
+      "description": "The date when the service request was made",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "public_cases_fc",
+      "chartType": "datetime",
+      "groupBy": "date_trunc('month', requested_datetime)",
+      "triggerField": "requested_datetime"
+    }
+  ],
+  [
+    {
+      "title":  "Zip Code",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "public_cases_fc",
+      "chartType": "choropleth",
+      "groupBy": "zipcode",
+      "boundaries": "https://phl.carto.com/api/v2/sql?q=select+*+from+zip_codes&format=geojson",
+      "boundariesLabel": "code",
+      "boundariesId": "code"
+    },
+    {
+      "title": "Service Name",
+      "description": "Name of the service request type",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "public_cases_fc",
+      "chartType": "bar",
+      "groupBy": "service_name"
+    }
+  ],
+  [
+    {
+      "title": "Agency Responsible",
+      "description": "The department in charge of the service request",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "public_cases_fc",
+      "chartType": "bar",
+      "groupBy": "agency_responsible"
+    },
+    {
+      "title": "Status",
+      "description": "Status of the service request",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "public_cases_fc",
+      "chartType": "pie",
+      "groupBy": "status"
+    }
+  ],
+  [
+    {
+      "title": "311 Service and Information Requests ",
+      "chartType": "table",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "order": "requested_datetime desc",
+      "dataset": "public_cases_fc",
+      "columnsToHide": [
+        "cartodb_id",
+        "objectid",
+        "the_geom",
+        "the_geom_webmercator"
+      ]
+    }
+  ]
+]
+
+      </script>
+    </div>
+
+    <script src="https://cityofphiladelphia.github.io/vizwit/scripts/vizwit-onpage.js"></script>
+  </body>
+</html>

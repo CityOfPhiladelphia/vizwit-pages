@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Property Tax Balances</title>
+
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Arimo:400,700,400italic">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.9/css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.2/leaflet.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/backbone.modal/1.1.5/backbone.modal-min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/backbone.modal/1.1.5/backbone.modal.theme-min.css">
+    <link rel="stylesheet" href="https://cityofphiladelphia.github.io/vizwit/styles/main.css">
+  </head>
+  <body>
+    <!-- Google Tag Manager [phila.gov] -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MC6CR2"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <script type="text/javascript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MC6CR2');</script>
+    <!-- End Google Tag Manager --> 
+    
+    <div class="header-container">
+      <div class="container" id="page-header">
+        <div class="row">
+          <div class="col-sm-10">
+            <h1 class="title">Property Tax Balances</h1>
+            <p class="description"><p>Property tax balances dating from 1972 to present. Includes balances
+    owed and credits/overpayments. Each row represents a tax period (year)
+    for a particular parcel. 2016 balances are for bills that are being
+    sent out in December </p>
+</p>
+          </div>
+          <div class="col-sm-2">
+            <div class="btn-group pull-right navigation" role="group">
+              <a href="https://www.opendataphilly.org/dataset/property-tax-balances" class="btn btn-default">Download</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <script type="application/json" class="vizwit">
+[
+  [
+    {
+      "title": "Sum of Totals by Tax Period",
+      "description": "Determines the acceptable uses of the property (commercial, residential, etc.)",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "real_estate_tax_balances",
+      "chartType": "bar",
+      "aggregateFunction": "sum",
+      "aggregateField": "total",
+      "groupBy": "tax_period"
+    },
+    {
+      "title":  "Owner",
+      "description": "Property owner",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "real_estate_tax_balances",
+      "chartType": "bar",
+      "groupBy": "owner"
+    }
+  ],
+  [
+    {
+      "title": "Property Tax Balances",
+      "chartType": "table",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "real_estate_tax_balances",
+      "columnsToHide": [
+        "cartodb_id",
+        "objectid",
+        "the_geom",
+        "the_geom_webmercator"
+      ]
+    }
+  ]
+]
+
+      </script>
+    </div>
+
+    <script src="https://cityofphiladelphia.github.io/vizwit/scripts/vizwit-onpage.js"></script>
+  </body>
+</html>
