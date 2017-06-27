@@ -14,7 +14,7 @@ download: https://opendataphilly.org
 [
   [
     {
-      "title":  "Percentage of screened children with blood lead levels > 5 micrograms per deciliter",
+      "title":  "Percentage of screened children with blood lead levels ≥ 5 micrograms per deciliter",
       "provider": "carto",
       "domain": "phl.carto.com",
       "dataset": "child_blood_lead_levels_by_zip",
@@ -23,12 +23,12 @@ download: https://opendataphilly.org
       "boundaries": "https://phl.carto.com/api/v2/sql?q=select+*+from+zip_codes&format=geojson",
       "boundariesLabel": "code",
       "boundariesId": "code",
-      "valueField": "max(percent_bll_gte_5_mg_per_dec)"
+      "valueField": "max(perc_5plus)"
     }
   ],
   [
     {
-      "title":  "Number of screened children with blood lead levels > 5 micrograms per deciliter",
+      "title":  "Number of screened children with blood lead levels ≥ 5 micrograms per deciliter",
       "provider": "carto",
       "domain": "phl.carto.com",
       "dataset": "child_blood_lead_levels_by_zip",
@@ -37,7 +37,7 @@ download: https://opendataphilly.org
       "boundaries": "https://phl.carto.com/api/v2/sql?q=select+*+from+zip_codes&format=geojson",
       "boundariesLabel": "code",
       "boundariesId": "code",
-      "valueField": "max(bll_gte_5_mg_per_dec)"
+      "valueField": "max(num_bll_5plus)"
     },
     {
       "title":  "Total number of children younger than 6 screened",
@@ -49,17 +49,17 @@ download: https://opendataphilly.org
       "boundaries": "https://phl.carto.com/api/v2/sql?q=select+*+from+zip_codes&format=geojson",
       "boundariesLabel": "code",
       "boundariesId": "code",
-      "valueField": "max(children_lt_6_screened)"
+      "valueField": "max(num_screen)"
 
     }
   ],
   [
     {
-      "title": "Childhood Lead Levels By Census Tract",
+      "title": "Childhood Lead Levels By Zip Code",
       "chartType": "table",
       "provider": "carto",
       "domain": "phl.carto.com",
-      "order": "percent_bll_gte_5_mg_per_dec desc nulls last",
+      "order": "perc_5plus desc nulls last",
       "dataset": "child_blood_lead_levels_by_zip",
       "columnsToHide":
       [
