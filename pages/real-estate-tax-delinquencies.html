@@ -1,0 +1,68 @@
+---
+title: Real Estate Tax Delinquencies
+description: |
+  <p></p>
+download: https://www.opendataphilly.org/dataset/real-estate-tax-delinquencies
+---
+[
+  [
+    {
+      "title": "Sum of Totals by Tax Period",
+      "description": "",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "real_estate_tax_delinquencies",
+      "chartType": "bar",
+      "aggregateFunction": "sum",
+      "aggregateField": "total_due",
+      "groupBy": "most_recent_year_owed"
+    },
+    {
+      "title":  "Owner",
+      "description": "Property owner",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "real_estate_tax_delinquencies",
+      "chartType": "bar",
+      "groupBy": "owner"
+    }
+  ],
+  [
+    {
+      "title":  "Zip Code",
+      "description": "Number of delinquent properties",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "real_estate_tax_delinquencies",
+      "chartType": "choropleth",
+      "groupBy": "zip",
+      "boundaries": "https://phl.carto.com/api/v2/sql?q=select+*+from+zip_codes&format=geojson",
+      "boundariesLabel": "code",
+      "boundariesId": "code"
+    },
+    {
+      "title": "Building Category",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "real_estate_tax_delinquencies",
+      "chartType": "pie",
+      "groupBy": "building_category"
+    }
+  ],
+  [
+    {
+      "title": "Real Estate Tax Delinquencies",
+      "chartType": "table",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "real_estate_tax_delinquencies",
+      "order": "total_due desc",
+      "columnsToHide": [
+        "cartodb_id",
+        "objectid",
+        "the_geom",
+        "the_geom_webmercator"
+      ]
+    }
+  ]
+]
