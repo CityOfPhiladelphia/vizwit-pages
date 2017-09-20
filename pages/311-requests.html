@@ -1,0 +1,81 @@
+---
+title: 311 Service and Information Requests
+description: |
+  <p>This represents service and information requests since December 8th, 2014
+      submitted to Philly311 via the 311 mobile application, calls, walk-ins,
+      emails, the 311 website or social media.
+    </p>
+download: https://www.opendataphilly.org/dataset/311-service-and-information-requests
+---
+[
+  [
+    {
+      "title": "Requested Date",
+      "description": "The date when the service request was made",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "public_cases_fc",
+      "chartType": "datetime",
+      "groupBy": "date_trunc('month', requested_datetime)",
+      "triggerField": "requested_datetime"
+    }
+  ],
+  [
+    {
+      "title":  "Zip Code",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "public_cases_fc",
+      "chartType": "choropleth",
+      "groupBy": "zipcode",
+      "boundaries": "https://phl.carto.com/api/v2/sql?q=select+*+from+zip_codes&format=geojson",
+      "boundariesLabel": "code",
+      "boundariesId": "code"
+    },
+    {
+      "title": "Service Name",
+      "description": "Name of the service request type",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "public_cases_fc",
+      "chartType": "bar",
+      "groupBy": "service_name"
+    }
+  ],
+  [
+    {
+      "title": "Agency Responsible",
+      "description": "The department in charge of the service request",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "public_cases_fc",
+      "chartType": "bar",
+      "groupBy": "agency_responsible"
+    },
+    {
+      "title": "Status",
+      "description": "Status of the service request",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "public_cases_fc",
+      "chartType": "pie",
+      "groupBy": "status"
+    }
+  ],
+  [
+    {
+      "title": "311 Service and Information Requests ",
+      "chartType": "table",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "order": "requested_datetime desc",
+      "dataset": "public_cases_fc",
+      "columnsToHide": [
+        "cartodb_id",
+        "objectid",
+        "the_geom",
+        "the_geom_webmercator"
+      ]
+    }
+  ]
+]
