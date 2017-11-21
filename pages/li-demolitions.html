@@ -1,0 +1,86 @@
+---
+title: L&I Demolitions
+description: |
+  <p>Inventory of building demolitions occurring within the City of Philadelphia. This includes both demolitions performed by private owners/contractors and by the Dpt of Licenses and Inspections due to dangerous building conditions</p>
+download: https://www.opendataphilly.org/dataset/licenses-and-inspections-demolitions
+---
+[
+  [
+    {
+      "title": "Violation Date",
+      "description": "The date the case was added into the L+I Hansen system.",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "li_violations",
+      "chartType": "datetime",
+      "groupBy": "date_trunc('month', violationdate)",
+      "triggerField": "violationdate",
+      "baseFilters": [
+        {
+          "field": "violationdate",
+          "expression": {
+            "type": "<=",
+            "value": "now()"
+          }
+        }
+      ]
+    }
+  ],
+  [
+    {
+      "title":  "Census Tract",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "li_demolitions",
+      "chartType": "choropleth",
+      "groupBy": "censustract",
+      "boundaries": "https://phl.carto.com/api/v2/sql?q=select+*+from+census_tracts_2010&format=geojson",
+      "boundariesLabel": "namelsad10",
+      "boundariesId": "name10_padded"
+    },
+    {
+      "title": "Violation Description",
+      "description": "The description of the type of violation.",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "li_violations",
+      "chartType": "bar",
+      "groupBy": "violationdescription"
+    }
+  ],
+  [
+    {
+      "title": "Owner Name",
+      "description": "Current owner of the property",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "li_demolitions",
+      "chartType": "bar",
+      "groupBy": "ownername"
+    },
+    {
+      "title": "Status",
+      "description": "Status of the violation",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "li_violations",
+      "chartType": "pie",
+      "groupBy": "status"
+    }
+  ],
+  [
+    {
+      "title": "Demolitions",
+      "chartType": "table",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "li_demolitions",
+      "columnsToHide": [
+        "cartodb_id",
+        "objectid",
+        "the_geom",
+        "the_geom_webmercator"
+      ]
+    }
+  ]
+]
