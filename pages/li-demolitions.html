@@ -7,17 +7,17 @@ download: https://www.opendataphilly.org/dataset/licenses-and-inspections-demoli
 [
   [
     {
-      "title": "Violation Date",
-      "description": "The date the case was added into the L+I Hansen system.",
+      "title": "Demolition Date",
+      "description": "The date the demolition was completed.",
       "provider": "carto",
       "domain": "phl.carto.com",
-      "dataset": "li_violations",
+      "dataset": "li_demolitions",
       "chartType": "datetime",
-      "groupBy": "date_trunc('month', violationdate)",
-      "triggerField": "violationdate",
+      "groupBy": "date_trunc('month', completed_date)",
+      "triggerField": "completed_date",
       "baseFilters": [
         {
-          "field": "violationdate",
+          "field": "completed_date",
           "expression": {
             "type": "<=",
             "value": "now()"
@@ -39,13 +39,13 @@ download: https://www.opendataphilly.org/dataset/licenses-and-inspections-demoli
       "boundariesId": "name10_padded"
     },
     {
-      "title": "Violation Description",
-      "description": "The description of the type of violation.",
+      "title": "Demolition Type",
+      "description": "The type of demolition.",
       "provider": "carto",
       "domain": "phl.carto.com",
-      "dataset": "li_violations",
-      "chartType": "bar",
-      "groupBy": "violationdescription"
+      "dataset": "li_demolitions",
+      "chartType": "pie",
+      "groupBy": "record_type"
     }
   ],
   [
@@ -60,12 +60,23 @@ download: https://www.opendataphilly.org/dataset/licenses-and-inspections-demoli
     },
     {
       "title": "Status",
-      "description": "Status of the violation",
+      "description": "Status of the demolition",
       "provider": "carto",
       "domain": "phl.carto.com",
-      "dataset": "li_violations",
+      "dataset": "li_demolitions",
       "chartType": "pie",
-      "groupBy": "status"
+      "groupBy": "permitstatus"
+    }
+  ],
+  [
+    {
+      "title": "Applicant Capacity",
+      "description": "Current owner of the property",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "li_demolitions",
+      "chartType": "bar",
+      "groupBy": "applicantcapacity"
     }
   ],
   [
