@@ -13,17 +13,8 @@ download: https://www.opendataphilly.org/dataset/licenses-and-inspections-commer
       "domain": "phl.carto.com",
       "dataset": "li_com_act_licenses",
       "chartType": "datetime",
-      "groupBy": "date_trunc('month', completed_date)",
-      "triggerField": "completed_date",
-      "baseFilters": [
-        {
-          "field": "completed_date",
-          "expression": {
-            "type": "<=",
-            "value": "now()"
-          }
-        }
-      ]
+      "groupBy": "date_trunc('month', issuedate)",
+      "triggerField": "issuedate"
     }
   ],
   [
