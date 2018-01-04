@@ -11,28 +11,12 @@ download: https://www.opendataphilly.org/dataset/employee-salaries-overtime
       "title": "Total Salaries by Department",
       "provider": "carto",
       "domain": "phl.carto.com",
-      "dataset": "employee_salaries",
+      "dataset": "latest_employee_salaries",
       "chartType": "bar",
       "groupBy": "department",
       "triggerField": "department",
       "aggregateFunction": "sum",
-      "aggregateField": "annual_salary",
-      "baseFilters": [
-        {
-          "field": "calendar_year",
-          "expression": {
-            "type": "=",
-            "value": "2017"
-          }
-        },
-        {
-          "field": "quarter",
-          "expression": {
-            "type": "=",
-            "value": "3"
-          }
-        }
-      ]
+      "aggregateField": "annual_salary"
     }
   ],
   [
@@ -40,28 +24,12 @@ download: https://www.opendataphilly.org/dataset/employee-salaries-overtime
       "title": "Total YTD Overtimes Gross by Department",
       "provider": "carto",
       "domain": "phl.carto.com",
-      "dataset": "employee_salaries",
+      "dataset": "latest_employee_salaries",
       "chartType": "bar",
       "groupBy": "department",
       "triggerField": "department",
       "aggregateFunction": "sum",
-      "aggregateField": "round(CAST(ytd_overtime_gross as numeric), 2)",
-      "baseFilters": [
-        {
-          "field": "calendar_year",
-          "expression": {
-            "type": "=",
-            "value": "2017"
-          }
-        },
-        {
-          "field": "quarter",
-          "expression": {
-            "type": "=",
-            "value": "2"
-          }
-        }
-      ]
+      "aggregateField": "round(CAST(ytd_overtime_gross as numeric), 2)"
     }
   ],
   [
@@ -70,7 +38,7 @@ download: https://www.opendataphilly.org/dataset/employee-salaries-overtime
       "chartType": "table",
       "provider": "carto",
       "domain": "phl.carto.com",
-      "dataset": "employee_salaries",
+      "dataset": "latest_employee_salaries",
       "order": "annual_salary desc",
       "columnsToHide": [
         "cartodb_id",
@@ -80,22 +48,6 @@ download: https://www.opendataphilly.org/dataset/employee-salaries-overtime
         "oid_",
         "calendar_year",
         "quarter"
-      ],
-      "baseFilters": [
-        {
-          "field": "calendar_year",
-          "expression": {
-            "type": "=",
-            "value": "2017"
-          }
-        },
-        {
-          "field": "quarter",
-          "expression": {
-            "type": "=",
-            "value": "2"
-          }
-        }
       ]
     }
   ]
