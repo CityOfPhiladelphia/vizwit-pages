@@ -13,8 +13,8 @@ download: https://www.opendataphilly.org/dataset/parking-violations
       "domain": "phl.carto.com",
       "dataset": "new_parking_violations",
       "chartType": "datetime",
-      "groupBy": "date_trunc('month', issue_date_and_time)",
-      "triggerField": "issue_date_and_time"
+      "groupBy": "date_trunc('month', issue_datetime)",
+      "triggerField": "issue_datetime"
     },
     {
       "title":"Zip Code",
@@ -22,7 +22,7 @@ download: https://www.opendataphilly.org/dataset/parking-violations
       "domain": "phl.carto.com",
       "dataset": "new_parking_violations",
       "chartType": "choropleth",
-      "groupBy": "violation_location_zip",
+      "groupBy": "zip_code",
       "boundaries": "https://phl.carto.com/api/v2/sql?q=select+*+from+zip_codes&format=geojson",
       "boundariesLabel": "code",
       "boundariesId": "code"
@@ -36,7 +36,7 @@ download: https://www.opendataphilly.org/dataset/parking-violations
       "domain": "phl.carto.com",
       "dataset": "new_parking_violations",
       "chartType": "bar",
-      "groupBy": "violation_description"
+      "groupBy": "violation_desc"
     },
     {
       "title":"Issuing Agency",
@@ -55,7 +55,7 @@ download: https://www.opendataphilly.org/dataset/parking-violations
       "provider": "carto",
       "domain": "phl.carto.com",
       "dataset": "new_parking_violations",
-      "order": "issue_date_and_time desc",
+      "order": "issue_datetime desc",
       "columnsToHide": [
         "cartodb_id",
         "objectid",
