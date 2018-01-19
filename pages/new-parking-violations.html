@@ -1,0 +1,67 @@
+---
+title: New Parking Violations
+description:
+    <p>!!!!!!! Testing new dataset build</p>
+download: https://www.opendataphilly.org/dataset/parking-violations
+---
+[
+  [
+    {
+      "title":"Issue Date and Time",
+      "description": "Date and time the violation was written",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "new_parking_violations",
+      "chartType": "datetime",
+      "groupBy": "date_trunc('month', issue_date_and_time)",
+      "triggerField": "issue_date_and_time"
+    },
+    {
+      "title":"Zip Code",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "new_parking_violations",
+      "chartType": "choropleth",
+      "groupBy": "violation_location_zip",
+      "boundaries": "https://phl.carto.com/api/v2/sql?q=select+*+from+zip_codes&format=geojson",
+      "boundariesLabel": "code",
+      "boundariesId": "code"
+    }
+  ],
+  [
+    {
+      "title":"Violation Description",
+      "description": "Short description of the type of violation that occurred",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "new_parking_violations",
+      "chartType": "bar",
+      "groupBy": "violation_description"
+    },
+    {
+      "title":"Issuing Agency",
+      "description": "Agency that issued the violation",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "new_parking_violations",
+      "chartType": "bar",
+      "groupBy": "issuing_agency"
+    }
+  ],
+  [
+    {
+      "title": "Parking Violations",
+      "chartType": "table",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "new_parking_violations",
+      "order": "issue_date_and_time desc",
+      "columnsToHide": [
+        "cartodb_id",
+        "objectid",
+        "the_geom",
+        "the_geom_webmercator"
+      ]
+    }
+  ]
+]
