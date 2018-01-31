@@ -1,0 +1,66 @@
+---
+title: L&I Commercial Activity Licenses
+description: |
+  <p>Commercial Activity Licenses are required by entities doing business in the City of Philadelphia. Information includes license number, application date, issuance date, applicant information, business entity name and other related information.</p>
+download: https://www.opendataphilly.org/dataset/licenses-and-inspections-commercial-activity-licenses
+---
+[
+  [
+    {
+      "title": "Issue Date",
+      "description": "When the Commercial Activity License was issued.",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "li_com_act_licenses",
+      "chartType": "datetime",
+      "groupBy": "date_trunc('month', issuedate)",
+      "triggerField": "issuedate"
+    }
+  ],
+  [
+    {
+    "title": "Legal Entity Type",
+    "description": "Type of Legal Entity that holds License.",
+    "provider": "carto",
+    "domain": "phl.carto.com",
+    "dataset": "li_com_act_licenses",
+    "chartType": "pie",
+    "groupBy": "legalentitytype"
+    },
+    {
+      "title": "Status",
+      "description": "Status of Commercial Activity License.",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "li_com_act_licenses",
+      "chartType": "pie",
+      "groupBy": "licensestatus"
+    }
+  ],
+  [
+    {
+      "title": "Company Name",
+      "description": "Name of company that holds the Commercial Activity License",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "li_com_act_licenses",
+      "chartType": "bar",
+      "groupBy": "companyname"
+    }
+  ],
+  [
+    {
+      "title": "Commercial Activity Licenses",
+      "chartType": "table",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "li_com_act_licenses",
+      "columnsToHide": [
+        "cartodb_id",
+        "objectid",
+        "the_geom",
+        "the_geom_webmercator"
+      ]
+    }
+  ]
+]

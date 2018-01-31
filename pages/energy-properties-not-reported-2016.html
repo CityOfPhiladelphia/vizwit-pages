@@ -1,0 +1,79 @@
+---
+title: Large Building Energy Benchmarking Data Properties Not Reported 2016
+description: |
+  <p>This dataset contains annual building and performance data for those properties which reported between years 2013 to 2016. Property data is pulled from the Office of Property Assessment. Data is self-reported by building owners using the EPA Portfolio Manager tool. This data will be updated annually.
+    </p>
+download: https://www.opendataphilly.org/dataset/large-commercial-building-energy-benchmarking
+---
+[
+  [
+    {
+      "title": "Requested Date",
+      "description": "The date when the service request was made",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "properties_not_reported_2016",
+      "chartType": "datetime",
+      "groupBy": "date_trunc('month', requested_datetime)",
+      "triggerField": "requested_datetime"
+    }
+  ],
+  [
+    {
+      "title":  "Location",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "properties_not_reported_2016",
+      "chartType": "choropleth",
+      "groupBy": "address",
+      "boundaries": "https://phl.carto.com/api/v2/sql?q=select+*+from+zip_codes&format=geojson",
+      "boundariesLabel": "code",
+      "boundariesId": "code"
+    },
+    {
+      "title": "Service Name",
+      "description": "Name of the service request type",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "properties_not_reported_2016",
+      "chartType": "bar",
+      "groupBy": "service_name"
+    }
+  ],
+  [
+    {
+      "title": "Agency Responsible",
+      "description": "The department in charge of the service request",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "properties_not_reported_2016",
+      "chartType": "bar",
+      "groupBy": "agency_responsible"
+    },
+    {
+      "title": "Status",
+      "description": "Status of the service request",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "properties_not_reported_2016",
+      "chartType": "pie",
+      "groupBy": "status"
+    }
+  ],
+  [
+    {
+      "title": "311 Service and Information Requests ",
+      "chartType": "table",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "order": "requested_datetime desc",
+      "dataset": "properties_not_reported_2016",
+      "columnsToHide": [
+        "cartodb_id",
+        "objectid",
+        "the_geom",
+        "the_geom_webmercator"
+      ]
+    }
+  ]
+]
