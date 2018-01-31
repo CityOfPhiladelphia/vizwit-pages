@@ -28,13 +28,16 @@
     <div class="header-container">
       <div class="container" id="page-header">
         <div class="row">
-          <div class="col-sm-10">
+          <div class="col-sm-9">
             <h1 class="title">{{ page.title }}</h1>
             <p class="description">{{ page.description }}</p>
           </div>
-          <div class="col-sm-2">
+          <div class="col-sm-3">
             <div class="btn-group pull-right navigation" role="group">
               <a href="{{ page.download }}" class="btn btn-default">Download</a>
+              {% if page.metadata %}
+                <a href="{{ page.metadata }}" class="btn btn-default">Metadata</a>
+              {% endif %}
             </div>
           </div>
         </div>
