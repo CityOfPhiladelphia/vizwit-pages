@@ -1,0 +1,81 @@
+---
+title: Philadelphia Prison & Jail Releases
+description: |
+  Proof of concept visualization for internal use only. Shows a subset of de-identified data.
+---
+[
+  [
+    {
+      "title": "Releases by date",
+      "provider": "carto",
+      "domain": "phl-oddt.carto.com",
+      "dataset": "pdp_releases_temp",
+      "chartType": "datetime",
+      "groupBy": "date_trunc('month', date_released)",
+      "triggerField": "date_released"
+    }
+  ],
+  [
+    {
+      "title": "Releases by category",
+      "provider": "carto",
+      "domain": "phl-oddt.carto.com",
+      "dataset": "pdp_releases_temp",
+      "chartType": "bar",
+      "groupBy": "asca_category"
+    },
+    {
+      "title":  "Zip Code",
+      "provider": "carto",
+      "domain": "phl-oddt.carto.com",
+      "dataset": "pdp_releases_temp",
+      "chartType": "choropleth",
+      "groupBy": "zip",
+      "boundaries": "https://phl.carto.com/api/v2/sql?q=select+*+from+zip_codes&format=geojson",
+      "boundariesLabel": "code",
+      "boundariesId": "code"
+    }
+  ],
+  [
+    {
+      "title": "Releases by charge",
+      "provider": "carto",
+      "domain": "phl-oddt.carto.com",
+      "dataset": "pdp_releases_temp",
+      "chartType": "pie",
+      "groupBy": "charge"
+    },
+    {
+      "title": "Releases by race",
+      "provider": "carto",
+      "domain": "phl-oddt.carto.com",
+      "dataset": "pdp_releases_temp",
+      "chartType": "pie",
+      "groupBy": "race"
+    },
+    {
+      "title": "Releases by gender",
+      "provider": "carto",
+      "domain": "phl-oddt.carto.com",
+      "dataset": "pdp_releases_temp",
+      "chartType": "pie",
+      "groupBy": "gender"
+    }
+  ],
+  [
+    {
+      "title": "Releases",
+      "chartType": "table",
+      "provider": "carto",
+      "domain": "phl-oddt.carto.com",
+      "dataset": "pdp_releases_temp",
+      "order": "date_released desc",
+      "columnsToHide": [
+        "cartodb_id",
+        "objectid",
+        "the_geom",
+        "the_geom_webmercator"
+      ]
+    }
+  ]
+]
