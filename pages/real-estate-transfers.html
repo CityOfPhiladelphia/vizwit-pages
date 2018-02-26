@@ -1,0 +1,72 @@
+---
+title: Real Estate Transfers
+description: |
+  <p>This dataset is a summary of real estate transfer tax documents. This table contains both raw source data as well as
+    calculated and geocoded/data fields. Document type, grantor, and grantee information is presented by address for each transaction.</p>
+download: https://www.opendataphilly.org/dataset/real-estate-transfers
+
+---
+[
+  [
+    {
+		"title": "Document Date",
+		"description": "The monthly amount of document transactions.",
+		"chartType": "datetime",
+		"provider": "carto",
+		"domain": "phl.carto.com",
+		"dataset": "rtt_summary",
+		"groupBy": "date_trunc('month',display_date)",
+		"triggerField": "display_date"
+	}
+],
+  [
+    {
+		"title":  "Zip Code",
+    "description": "Number of transactions in each zip code.",
+    "provider": "carto",
+    "domain": "phl.carto.com",
+    "dataset": "rtt_summary",
+    "chartType": "choropleth",
+    "groupBy": "zip",
+    "boundaries": "https://phl.carto.com/api/v2/sql?q=select+*+from+zip_codes&format=geojson",
+    "boundariesLabel": "code",
+    "boundariesId": "code"
+	},
+	{
+		"title": "Documents by Type",
+		"description": "Shows the type of document involved in the real estate transfer.",
+		"provider": "carto",
+		"domain": "phl.carto.com",
+		"dataset": "rtt_summary",
+		"chartType": "bar",
+		"groupBy": "document_type"
+	}
+],
+  [
+  	{
+		"title": "Number of Properties by Fair Market Value",
+		"provider": "carto",
+		"domain": "phl.carto.com",
+		"dataset": "rtt_summary",
+		"chartType": "bar",
+		"groupBy": "fair_market_value"
+	}
+],
+[
+  {
+    "title": "Real Estate Transfers",
+    "description": "To export this table with current filters applied, click the menu icon to the right.",
+    "chartType": "table",
+    "provider": "carto",
+    "domain": "phl.carto.com",
+    "dataset": "rtt_summary",
+    "order": "display_date",
+    "columnsToHide": [
+      "cartodb_id",
+      "objectid",
+      "the_geom",
+      "the_geom_webmercator"
+    ]
+	}
+  ]
+]
