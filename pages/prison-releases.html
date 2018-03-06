@@ -9,7 +9,7 @@ description: |
       "title": "Releases by date",
       "provider": "carto",
       "domain": "phl-oddt.carto.com",
-      "dataset": "pdp_releases_temp",
+      "dataset": "pdp_state_releases",
       "chartType": "datetime",
       "groupBy": "date_trunc('month', date_released)",
       "triggerField": "date_released"
@@ -20,9 +20,9 @@ description: |
       "title": "Releases by category",
       "provider": "carto",
       "domain": "phl-oddt.carto.com",
-      "dataset": "pdp_releases_temp",
+      "dataset": "pdp_state_releases_age_range",
       "chartType": "bar",
-      "groupBy": "asca_category"
+      "groupBy": "age_range"
     },
     {
       "title":  "Zip Code",
