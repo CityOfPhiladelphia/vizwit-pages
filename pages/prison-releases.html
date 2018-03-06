@@ -6,20 +6,29 @@ description: |
 [
   [
     {
-      "title": "Releases by date",
+      "title": "Releases by year",
       "provider": "carto",
-      "domain": "phl-oddt.carto.com",
+      "domain": "phl.carto.com",
       "dataset": "pdp_state_releases",
-      "chartType": "datetime",
-      "groupBy": "date_trunc('month', date_released)",
-      "triggerField": "date_released"
+      "chartType": "bar",
+      "groupBy": "year",
+      "triggerField": "year"
+    },
+    {
+      "title": "Releases by correctional facility",
+      "description": "Individual-level data for releases from Federal (BOP) incarceration was not available, and is less than 2% in the years analyzed.
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "pdp_state_releases",
+      "chartType": "pie",
+      "groupBy": "custody_agency"
     }
   ],
   [
     {
-      "title": "Releases by category",
+      "title": "Releases by age",
       "provider": "carto",
-      "domain": "phl-oddt.carto.com",
+      "domain": "phl.carto.com",
       "dataset": "pdp_state_releases_age_range",
       "chartType": "bar",
       "groupBy": "age_range"
@@ -27,8 +36,8 @@ description: |
     {
       "title":  "Zip Code",
       "provider": "carto",
-      "domain": "phl-oddt.carto.com",
-      "dataset": "pdp_releases_temp",
+      "domain": "phl.carto.com",
+      "dataset": "pdp_state_releases",
       "chartType": "choropleth",
       "groupBy": "zip",
       "boundaries": "https://phl.carto.com/api/v2/sql?q=select+*+from+zip_codes&format=geojson",
@@ -38,28 +47,20 @@ description: |
   ],
   [
     {
-      "title": "Releases by charge",
-      "provider": "carto",
-      "domain": "phl-oddt.carto.com",
-      "dataset": "pdp_releases_temp",
-      "chartType": "pie",
-      "groupBy": "charge"
-    },
-    {
       "title": "Releases by race",
       "provider": "carto",
-      "domain": "phl-oddt.carto.com",
-      "dataset": "pdp_releases_temp",
+      "domain": "phl.carto.com",
+      "dataset": "pdp_state_releases",
       "chartType": "pie",
-      "groupBy": "race"
+      "groupBy": "race_ethnicity"
     },
     {
       "title": "Releases by gender",
       "provider": "carto",
-      "domain": "phl-oddt.carto.com",
-      "dataset": "pdp_releases_temp",
+      "domain": "phl.carto.com",
+      "dataset": "pdp_state_releases",
       "chartType": "pie",
-      "groupBy": "gender"
+      "groupBy": "sex"
     }
   ],
   [
@@ -67,9 +68,9 @@ description: |
       "title": "Releases",
       "chartType": "table",
       "provider": "carto",
-      "domain": "phl-oddt.carto.com",
-      "dataset": "pdp_releases_temp",
-      "order": "date_released desc",
+      "domain": "phl.carto.com",
+      "dataset": "pdp_state_releases",
+      "order": "date_of_release desc",
       "columnsToHide": [
         "cartodb_id",
         "objectid",
