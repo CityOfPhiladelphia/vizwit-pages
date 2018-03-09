@@ -1,26 +1,30 @@
 ---
 title: People released to Philadelphia from prison & jail
 description: |
-  This dataset includes people released to Philadelphia from the Philadelphia Department of Prisons (PDP) and the Pennsylvania Department of Correction (PA DOC). Individual-level data for releases from Federal (BOP) incarceration was not available, and is less than 2% in the years analyzed. The dataset also only includes people released to Philadelphia who have been charged with a criminal non-summary type offense in the Philadelphia adult criminal justice system.
+  <p>  This dataset includes people released to Philadelphia from the Philadelphia Department of Prisons (PDP) and the Pennsylvania Department of Correction (PA DOC). Individual-level data for releases from Federal (BOP) incarceration was not available, and is less than 2% in the years analyzed. The dataset also only includes people released to Philadelphia who have been charged with a criminal non-summary type offense in the Philadelphia adult criminal justice system. </p>
+download: https://www.opendataphilly.org/dataset/people-released-to-philadelphia-from-prison-jail
 ---
 [
 	[
-  {
-		"title": "By age",
-		"provider": "carto",
-		"domain": "phl.carto.com",
-		"dataset": "pdp_state_releases_age_range",
-		"chartType": "bar",
-		"groupBy": "age_range"
-	}, {
-		"title": "By agency",
-		"provider": "carto",
-		"domain": "phl.carto.com",
-		"dataset": "pdp_state_releases_age_range",
-		"chartType": "pie",
-		"groupBy": "custody_agency"
-	}],
-	[{
+    {
+		 "title": "By age",
+     "provider": "carto",
+     "domain": "phl.carto.com",
+     "dataset": "pdp_state_releases_age_range",
+     "chartType": "bar",
+     "groupBy": "age_range"
+	   },
+     {
+  		"title": "By agency",
+  		"provider": "carto",
+  		"domain": "phl.carto.com",
+  		"dataset": "pdp_state_releases_age_range",
+  		"chartType": "pie",
+  		"groupBy": "custody_agency"
+	   }
+  ],
+	[
+    {
 			"title": "By zip code",
 			"provider": "carto",
 			"domain": "phl.carto.com",
@@ -40,26 +44,30 @@ description: |
 			"groupBy": "race_ethnicity"
 		}
 	],
-	[{
-		"title": "By sex",
-		"provider": "carto",
-		"domain": "phl.carto.com",
-		"dataset": "pdp_state_releases_age_range",
-		"chartType": "pie",
-		"groupBy": "sex"
-	}],
-	[{
-		"title": "People released to Philadelphia",
-		"chartType": "table",
-		"provider": "carto",
-		"domain": "phl.carto.com",
-		"dataset": "pdp_state_releases_age_range",
-		"order": "date_of_release desc",
-		"columnsToHide": [
-			"cartodb_id",
-			"objectid",
-			"the_geom",
-			"the_geom_webmercator"
-		]
-	}]
+	[
+    {
+  		"title": "By sex",
+  		"provider": "carto",
+  		"domain": "phl.carto.com",
+  		"dataset": "pdp_state_releases_age_range",
+  		"chartType": "pie",
+  		"groupBy": "sex"
+	   }
+  ],
+  [
+    {
+  		"title": "People released to Philadelphia",
+  		"chartType": "table",
+  		"provider": "carto",
+  		"domain": "phl.carto.com",
+  		"dataset": "pdp_state_releases_age_range",
+  		"order": "date_of_release desc",
+  		"columnsToHide": [
+  			"cartodb_id",
+  			"objectid",
+  			"the_geom",
+  			"the_geom_webmercator"
+      ]
+    }
+  ]
 ]
