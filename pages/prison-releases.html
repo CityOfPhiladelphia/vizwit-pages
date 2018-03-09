@@ -15,26 +15,26 @@ download: https://www.opendataphilly.org/dataset/people-released-to-philadelphia
      "groupBy": "age_range"
 	   },
      {
-  		"title": "By agency",
-  		"provider": "carto",
-  		"domain": "phl.carto.com",
-  		"dataset": "pdp_state_releases_age_range",
-  		"chartType": "pie",
-  		"groupBy": "custody_agency"
-	   }
+       "title": "By zip code",
+       "provider": "carto",
+       "domain": "phl.carto.com",
+       "dataset": "pdp_state_releases_age_range",
+       "chartType": "choropleth",
+       "groupBy": "zip",
+       "boundaries": "https://phl.carto.com/api/v2/sql?q=select+*+from+zip_codes&format=geojson",
+       "boundariesLabel": "code",
+       "boundariesId": "code"
+     }
   ],
 	[
     {
-			"title": "By zip code",
-			"provider": "carto",
-			"domain": "phl.carto.com",
-			"dataset": "pdp_state_releases_age_range",
-			"chartType": "choropleth",
-			"groupBy": "zip",
-			"boundaries": "https://phl.carto.com/api/v2/sql?q=select+*+from+zip_codes&format=geojson",
-			"boundariesLabel": "code",
-			"boundariesId": "code"
-		},
+     "title": "By agency",
+     "provider": "carto",
+     "domain": "phl.carto.com",
+     "dataset": "pdp_state_releases_age_range",
+     "chartType": "pie",
+     "groupBy": "custody_agency"
+   },
 		{
 			"title": "By race",
 			"provider": "carto",
@@ -42,9 +42,7 @@ download: https://www.opendataphilly.org/dataset/people-released-to-philadelphia
 			"dataset": "pdp_state_releases_age_range",
 			"chartType": "pie",
 			"groupBy": "race_ethnicity"
-		}
-	],
-	[
+		},
     {
   		"title": "By sex",
   		"provider": "carto",
