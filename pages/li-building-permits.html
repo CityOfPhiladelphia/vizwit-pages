@@ -1,5 +1,5 @@
 ---
-title: L&I Building Permits
+title: L&I building permits
 description: |
   <p>The Department of Licenses & Inspections reviews construction plans and
   conducts building inspections to ensure the safety of the workers and the
@@ -13,7 +13,7 @@ download: https://www.opendataphilly.org/dataset/licenses-and-inspections-buildi
 [
   [
     {
-      "title": "Permit Issue Date",
+      "title": "Permit issue date",
       "description": "The date and time that the permit was issued.",
       "provider": "carto",
       "domain": "phl.carto.com",
@@ -25,7 +25,7 @@ download: https://www.opendataphilly.org/dataset/licenses-and-inspections-buildi
   ],
   [
     {
-      "title":  "Census Tract",
+      "title":  "By census tract",
       "provider": "carto",
       "domain": "phl.carto.com",
       "dataset": "li_permits",
@@ -36,18 +36,31 @@ download: https://www.opendataphilly.org/dataset/licenses-and-inspections-buildi
       "boundariesId": "name10_padded"
     },
     {
-      "title": "Permit Description",
-      "description": "The description of the type of permit issued.",
+      "title":  "By city council district",
       "provider": "carto",
       "domain": "phl.carto.com",
       "dataset": "li_permits",
-      "chartType": "bar",
-      "groupBy": "permitdescription"
+      "chartType": "choropleth",
+      "groupBy": "council_district",
+      "boundaries": "https://phl.carto.com/api/v2/sql?q=select+*+from+gis_planning_council_districts_2016&format=geojson",
+      "boundariesLabel": "district",
+      "boundariesId": "district"
     }
   ],
   [
     {
-      "title": "Type of Work",
+      "title":  "By city council district",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "li_permits",
+      "chartType": "bar",
+      "groupBy": "council_district",
+      "boundaries": "https://phl.carto.com/api/v2/sql?q=select+*+from+gis_planning_council_districts_2016&format=geojson",
+      "boundariesLabel": "district",
+      "boundariesId": "district"
+    },
+    {
+      "title": "By type of work",
       "description": "L&I descriptor of the type of work permitted.",
       "provider": "carto",
       "domain": "phl.carto.com",
@@ -58,7 +71,7 @@ download: https://www.opendataphilly.org/dataset/licenses-and-inspections-buildi
   ],
   [
      {
-      "title": "Status",
+      "title": "By status",
       "description": "Status of the permit.",
       "provider": "carto",
       "domain": "phl.carto.com",
@@ -67,7 +80,7 @@ download: https://www.opendataphilly.org/dataset/licenses-and-inspections-buildi
       "groupBy": "status"
     },
     {
-      "title": "Owner Name",
+      "title": "By owner name",
       "description": "Current owner of the property",
       "provider": "carto",
       "domain": "phl.carto.com",
@@ -78,7 +91,7 @@ download: https://www.opendataphilly.org/dataset/licenses-and-inspections-buildi
   ],
   [
     {
-      "title": "Building Permits",
+      "title": "Building permits",
       "chartType": "table",
       "provider": "carto",
       "domain": "phl.carto.com",
