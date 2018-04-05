@@ -49,8 +49,17 @@ download: https://www.opendataphilly.org/dataset/real-estate-transfers
 		"domain": "phl.carto.com",
 		"dataset": "rtt_summary",
 		"chartType": "bar",
-		"groupBy": "fair_market_value"
-  	}
+		"groupBy": "fair_market_value",
+    "baseFilters": [
+      {
+        "field": "fair_market_value",
+      "expression": {
+          "type": "is not",
+          "value": null
+        }
+      }
+    ]
+  }
 ],
 [
   {
