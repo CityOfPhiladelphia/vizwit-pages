@@ -1,9 +1,7 @@
 ---
 title: Real Estate Tax Delinquencies
 description: |
-  This data updates monthly and includes accounts which are "not actionable," such as
-  accounts in payment agreement, accounts that are overdue but not yet delinquent, and
-  accounts that are in bankruptcy.
+  This data updates monthly.
 download: https://www.opendataphilly.org/dataset/real-estate-tax-delinquencies
 metadata: http://metadata.phila.gov/#home/datasetdetails/57d9643afab162fe2708224e/representationdetails/57d9643cfab162fe27082252/?view_287_per_page=500&view_287_page=1
 ---
@@ -11,7 +9,7 @@ metadata: http://metadata.phila.gov/#home/datasetdetails/57d9643afab162fe2708224
   [
     {
       "title": "Actionable principal due",
-      "description": "Principal due from accounts considered \"actionable\"",
+      "description": "Principal due from accounts considered \"actionable\". Accounts that are in payment agreement, bankruptcy, or overdue but not yet delinquent are considered \"not actionable\".",
       "provider": "carto",
       "domain": "phl.carto.com",
       "dataset": "real_estate_tax_delinquencies",
@@ -30,13 +28,14 @@ metadata: http://metadata.phila.gov/#home/datasetdetails/57d9643afab162fe2708224
       ]
     },
     {
-      "title": "Actionable accounts",
+      "title": "Actionable accounts (principal due)",
       "description": "Accounts that are in payment agreement, bankruptcy, or overdue but not yet delinquent are considered not actionable",
       "provider": "carto",
       "domain": "phl.carto.com",
       "dataset": "real_estate_tax_delinquencies",
       "chartType": "pie",
-      "groupBy": "is_actionable"
+      "groupBy": "case when is_actionable=true then 'Actionable' else 'Non-actionable' end",
+      "valueField": "sum(principal_due)"
     }
   ],
   [
