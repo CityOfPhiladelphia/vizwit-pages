@@ -17,9 +17,18 @@ metadata: http://metadata.phila.gov/#home/datasetdetails/5a04b8d39202605970a7457
 		"domain": "phl.carto.com",
 		"dataset": "RTT_SUMMARY_FULL",
 		"groupBy": "date_trunc('month',display_date)",
-		"triggerField": "display_date"
-	}
-],
+		"triggerField": "display_date",
+	"baseFilters": [
+        {
+          "field": "display_date",
+          "expression": {
+            "type": ">=",
+            "value": "12/06/1999"
+          }
+        }
+      ]
+    }
+  ],
   [
     {
 		"title":  "ZIP Code",
@@ -31,8 +40,17 @@ metadata: http://metadata.phila.gov/#home/datasetdetails/5a04b8d39202605970a7457
     "groupBy": "zip_code",
     "boundaries": "https://phl.carto.com/api/v2/sql?q=select+*+from+zip_codes&format=geojson",
     "boundariesLabel": "code",
-    "boundariesId": "code"
-	},
+    "boundariesId": "code",
+    "baseFilters": [
+          {
+            "field": "display_date",
+            "expression": {
+              "type": ">=",
+              "value": "12/06/1999"
+            }
+         }
+       ]
+     },
 	{
 		"title": "Documents by type",
 		"description": "Shows the number of documents by type involved in the real estate transfer.",
@@ -40,9 +58,18 @@ metadata: http://metadata.phila.gov/#home/datasetdetails/5a04b8d39202605970a7457
 		"domain": "phl.carto.com",
 		"dataset": "RTT_SUMMARY_FULL",
 		"chartType": "bar",
-		"groupBy": "document_type"
-	}
-],
+		"groupBy": "document_type",
+	"baseFilters": [
+        {
+          "field": "display_date",
+          "expression": {
+            "type": ">=",
+            "value": "12/06/1999"
+          }
+        }
+      ]
+    }
+  ],
 [
   {
     "title": "Real estate transfers",
@@ -52,6 +79,15 @@ metadata: http://metadata.phila.gov/#home/datasetdetails/5a04b8d39202605970a7457
     "domain": "phl.carto.com",
     "dataset": "RTT_SUMMARY_FULL",
     "order": "display_date",
+    "baseFilters": [
+          {
+            "field": "display_date",
+            "expression": {
+              "type": ">=",
+              "value": "12/06/1999"
+            }
+          }
+        ],
     "columnsToHide": [
       "cartodb_id",
       "objectid",
