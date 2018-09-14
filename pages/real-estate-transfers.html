@@ -15,7 +15,7 @@ metadata: http://metadata.phila.gov/#home/datasetdetails/5a04b8d39202605970a7457
 		"chartType": "datetime",
 		"provider": "carto",
 		"domain": "phl.carto.com",
-		"dataset": "rtt_summary",
+		"dataset": "RTT_SUMMARY_FULL",
 		"groupBy": "date_trunc('month',display_date)",
 		"triggerField": "display_date"
 	}
@@ -26,7 +26,7 @@ metadata: http://metadata.phila.gov/#home/datasetdetails/5a04b8d39202605970a7457
     "description": "The number of transactions in each ZIP Code.",
     "provider": "carto",
     "domain": "phl.carto.com",
-    "dataset": "rtt_summary",
+    "dataset": "RTT_SUMMARY_FULL",
     "chartType": "choropleth",
     "groupBy": "zip_code",
     "boundaries": "https://phl.carto.com/api/v2/sql?q=select+*+from+zip_codes&format=geojson",
@@ -38,29 +38,10 @@ metadata: http://metadata.phila.gov/#home/datasetdetails/5a04b8d39202605970a7457
 		"description": "Shows the number of documents by type involved in the real estate transfer.",
 		"provider": "carto",
 		"domain": "phl.carto.com",
-		"dataset": "rtt_summary",
+		"dataset": "RTT_SUMMARY_FULL",
 		"chartType": "bar",
 		"groupBy": "document_type"
 	}
-],
-  [
-  	{
-		"title": "Number of transfers by fair market value",
-		"provider": "carto",
-		"domain": "phl.carto.com",
-		"dataset": "rtt_summary",
-		"chartType": "bar",
-		"groupBy": "fair_market_value",
-    "baseFilters": [
-      {
-        "field": "fair_market_value",
-      "expression": {
-          "type": ">",
-          "value": 0
-        }
-      }
-    ]
-  }
 ],
 [
   {
@@ -69,7 +50,7 @@ metadata: http://metadata.phila.gov/#home/datasetdetails/5a04b8d39202605970a7457
     "chartType": "table",
     "provider": "carto",
     "domain": "phl.carto.com",
-    "dataset": "rtt_summary",
+    "dataset": "RTT_SUMMARY_FULL",
     "order": "display_date",
     "columnsToHide": [
       "cartodb_id",
