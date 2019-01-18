@@ -1,9 +1,15 @@
 ---
 title: City Payments
 description:  | 
-  <p>This dataset includes checks and ACH payments made by the City during the fiscal year, which runs from July 1st through June 31st. </p>
-  <p>Please note: bar chart data is pulled from the city_payments_aggregates dataset. Filter table data is pulled from the city_payments dataset. For more details, see the metadata.</p>
-
+  <p>This dataset includes checks and ACH payments made by the City during the fiscal year, 
+    which runs from July 1st through June 31st. 
+    This dataset does not include all payments made by the City. 
+    Namely, salary and benefits payments are not included here, 
+    but information on City salaries can be found in the employee salaries and overtime dataset.</p>
+    <p>Please note: bar chart data is pulled from the city_payments_aggregates dataset. 
+    Filter table data is pulled from the city_payments dataset. For more details, see the metadata.</p>
+download: https://cityofphiladelphia.carto.com/u/phl/dataset/city_payments
+metadata: http://metadata.phila.gov/index.html#home/datasetdetails/5c4243d6a074de085a899716/
 ---
 [
   [
@@ -21,7 +27,7 @@ description:  |
   ], 
   [
     {
-      "title": "Total transactions by department",
+      "title": "Total number of transactions by department",
       "description": "Total number of payments. Data from aggregate dataset, which includes redacted payments.",
       "provider": "carto",
       "domain": "phl.carto.com",
@@ -42,10 +48,10 @@ description:  |
       "aggregateFunction": "sum",
       "aggregateField": "total_transaction_amount"
     }
-  ], 
+  ],
   [
     {
-      "title": "Total transactions by character title",
+      "title": "Total number of transactions by character title",
       "description": "Total number of payments. Data from aggregate dataset, which includes redacted payments.",
       "provider": "carto",
       "domain": "phl.carto.com",
@@ -53,7 +59,7 @@ description:  |
       "chartType": "bar",
       "groupBy": "character_title"
     }
-  ], 
+  ],
   [
     {
       "title": "Total transaction amounts by subject title",
@@ -69,7 +75,7 @@ description:  |
   ],
   [
     {
-      "title": "Total transactions by subject title",
+      "title": "Total number of transactions by subject title",
       "description": "Total number of payments. Data from aggregate dataset, which includes redacted payments.",
       "provider": "carto",
       "domain": "phl.carto.com",
@@ -93,7 +99,7 @@ description:  |
   ],
   [
     {
-      "title": "Total transactions by document reference number prefix",
+      "title": "Total number of transactions by document reference number prefix",
       "description": "Total number of payments. Data from aggregate dataset, which includes redacted payments.",
       "provider": "carto",
       "domain": "phl.carto.com",
