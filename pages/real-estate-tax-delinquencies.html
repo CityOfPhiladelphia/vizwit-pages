@@ -22,7 +22,7 @@ metadata: http://metadata.phila.gov/#home/datasetdetails/57d9643afab162fe2708224
           "field": "is_actionable",
           "expression": {
             "type": "=",
-            "value": true
+            "value": "true"
           }
         }
       ]
@@ -34,7 +34,7 @@ metadata: http://metadata.phila.gov/#home/datasetdetails/57d9643afab162fe2708224
       "domain": "phl.carto.com",
       "dataset": "real_estate_tax_delinquencies",
       "chartType": "pie",
-      "groupBy": "case when is_actionable=true then 'Actionable' else 'Non-actionable' end",
+      "groupBy": "case when is_actionable='true' then 'Actionable' else 'Non-actionable' end",
       "valueField": "sum(principal_due)"
     }
   ],
