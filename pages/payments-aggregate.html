@@ -1,0 +1,88 @@
+---
+title: Aggregate City Payments
+description: |
+    <p>This dataset includes checks and ACH (direct deposit) payments
+    made by the City during the fiscal year 2017, which runs from July 1st 2016 through June
+    30th 2017. </p>
+
+    <p>This dataset does not include all payments made by the City. Namely,
+    salary and benefits payments are not included here, but information on City
+    salaries can be found in the employee salaries and overtime dataset.</p>
+
+    <p>This dataset cannot be accurately compared directly with the other financial
+    and accounting reports released by the City.</p>
+
+    <p>Please note: This dataset includes payments which are legal and security-sensitive.</p>
+download: https://www.opendataphilly.org/dataset/city-payments
+metadata: http://metadata.phila.gov/index.html#home/datasetdetails/5c4243d6a074de085a899716/
+---
+[
+  [
+    {
+      "title": "Total transaction amounts by department",
+      "description": "Total amounts in USD. Data from detailed dataset.",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "city_payments_aggregates_fy2017",
+      "chartType": "bar",
+      "groupBy": "department_title",
+      "aggregateFunction": "sum",
+      "aggregateField": "total_transaction_amount"
+    }
+  ],
+  [
+    {
+      "title": "Total transaction amounts by character title",
+      "description": "Total amounts in USD. Data from detailed dataset.",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "city_payments_aggregates_fy2017",
+      "chartType": "bar",
+      "groupBy": "character_title",
+      "aggregateFunction": "sum",
+      "aggregateField": "total_transaction_amount"
+    }
+  ],
+  [
+    {
+      "title": "Total transaction amounts by sub-object title",
+      "description": "Total amounts in USD. Data from detailed dataset.",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "city_payments_aggregates_fy2017",
+      "chartType": "bar",
+      "groupBy": "sub_obj_title",
+      "aggregateFunction": "sum",
+      "aggregateField": "total_transaction_amount"
+    }
+  ],
+  [
+    {
+      "title": "Total transaction amounts by document reference number prefix",
+      "description": "Total amounts in USD. Data from detailed dataset.",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "city_payments_aggregates_fy2017",
+      "chartType": "bar",
+      "groupBy": "doc_ref_no_prefix_definition",
+      "aggregateFunction": "sum",
+      "aggregateField": "total_transaction_amount"
+    }
+  ],
+  [
+    {
+      "title": "Detailed City Payments (sensitive rows removed)",
+      "chartType": "table",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "city_payments_aggregates_fy2017",
+      "order": "sub_obj_title",
+      "columnsToHide": [
+        "cartodb_id",
+        "objectid",
+        "the_geom",
+        "the_geom_webmercator"
+      ]
+    }
+  ]
+]
