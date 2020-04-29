@@ -4,7 +4,7 @@ description: |
   <p>All active and open "Unsafe" code violations. Reference Section PM-304.1 of
   The Philadelphia Property Maintenance Code</p>
 download: https://www.opendataphilly.org/dataset/licenses-and-inspections-violations
-metadata: http://metadata.phila.gov/#home/datasetdetails/5543ca7a5c4ae4cd66d3ff86/representationdetails/57d2fcd1af067d7747870ee5/
+metadata: https://metadata.phila.gov/#home/datasetdetails/5543ca7a5c4ae4cd66d3ff86/representationdetails/5e98b247c4d4770015ca69f7/
 ---
 [
   [
@@ -13,7 +13,7 @@ metadata: http://metadata.phila.gov/#home/datasetdetails/5543ca7a5c4ae4cd66d3ff8
       "description": "The date the case was added into the L+I Hansen system.",
       "provider": "carto",
       "domain": "phl.carto.com",
-      "dataset": "li_unsafe",
+      "dataset": "unsafe",
       "chartType": "datetime",
       "groupBy": "date_trunc('month', violationdate)",
       "triggerField": "violationdate"
@@ -24,7 +24,7 @@ metadata: http://metadata.phila.gov/#home/datasetdetails/5543ca7a5c4ae4cd66d3ff8
       "title":  "Census Tract",
       "provider": "carto",
       "domain": "phl.carto.com",
-      "dataset": "li_unsafe",
+      "dataset": "unsafe",
       "chartType": "choropleth",
       "groupBy": "censustract",
       "boundaries": "https://phl.carto.com/api/v2/sql?q=select+*+from+census_tracts_2010&format=geojson",
@@ -36,9 +36,9 @@ metadata: http://metadata.phila.gov/#home/datasetdetails/5543ca7a5c4ae4cd66d3ff8
       "description": "The description of the type of violation.",
       "provider": "carto",
       "domain": "phl.carto.com",
-      "dataset": "li_unsafe",
+      "dataset": "unsafe",
       "chartType": "bar",
-      "groupBy": "violationdescription"
+      "groupBy": "violationcodetitle"
     }
   ],
   [
@@ -47,9 +47,9 @@ metadata: http://metadata.phila.gov/#home/datasetdetails/5543ca7a5c4ae4cd66d3ff8
       "description": "Current owner of the property",
       "provider": "carto",
       "domain": "phl.carto.com",
-      "dataset": "li_unsafe",
+      "dataset": "unsafe",
       "chartType": "bar",
-      "groupBy": "ownername"
+      "groupBy": "opa_owner"
     }
   ],
   [
@@ -58,7 +58,7 @@ metadata: http://metadata.phila.gov/#home/datasetdetails/5543ca7a5c4ae4cd66d3ff8
       "chartType": "table",
       "provider": "carto",
       "domain": "phl.carto.com",
-      "dataset": "li_unsafe",
+      "dataset": "unsafe",
       "columnsToHide": [
         "cartodb_id",
         "objectid",
