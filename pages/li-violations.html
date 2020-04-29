@@ -4,7 +4,7 @@ description: |
   <p>Violations issued by the Department of Licenses and Inspections in reference
   to the Philadelphia Building Construction and Occupancy Code.</p>
 download: https://www.opendataphilly.org/dataset/licenses-and-inspections-violations
-metadata: http://metadata.phila.gov/#home/datasetdetails/5543ca7a5c4ae4cd66d3ff86/representationdetails/5571b1bde4fb1d91393c215c/
+metadata: https://metadata.phila.gov/#home/datasetdetails/5543ca7a5c4ae4cd66d3ff86/representationdetails/5e99bab227c80700158695b0/
 ---
 [
   [
@@ -13,7 +13,7 @@ metadata: http://metadata.phila.gov/#home/datasetdetails/5543ca7a5c4ae4cd66d3ff8
       "description": "The date the case was added into the L+I Hansen system.",
       "provider": "carto",
       "domain": "phl.carto.com",
-      "dataset": "li_violations",
+      "dataset": "violations",
       "chartType": "datetime",
       "groupBy": "date_trunc('month', violationdate)",
       "triggerField": "violationdate",
@@ -33,7 +33,7 @@ metadata: http://metadata.phila.gov/#home/datasetdetails/5543ca7a5c4ae4cd66d3ff8
       "title":  "Census Tract",
       "provider": "carto",
       "domain": "phl.carto.com",
-      "dataset": "li_violations",
+      "dataset": "violations",
       "chartType": "choropleth",
       "groupBy": "censustract",
       "boundaries": "https://phl.carto.com/api/v2/sql?q=select+*+from+census_tracts_2010&format=geojson",
@@ -45,9 +45,9 @@ metadata: http://metadata.phila.gov/#home/datasetdetails/5543ca7a5c4ae4cd66d3ff8
       "description": "The description of the type of violation.",
       "provider": "carto",
       "domain": "phl.carto.com",
-      "dataset": "li_violations",
+      "dataset": "violations",
       "chartType": "bar",
-      "groupBy": "violationdescription"
+      "groupBy": "violationcodetitle"
     }
   ],
   [
@@ -56,18 +56,18 @@ metadata: http://metadata.phila.gov/#home/datasetdetails/5543ca7a5c4ae4cd66d3ff8
       "description": "Current owner of the property",
       "provider": "carto",
       "domain": "phl.carto.com",
-      "dataset": "li_violations",
+      "dataset": "violations",
       "chartType": "bar",
-      "groupBy": "ownername"
+      "groupBy": "opa_owner"
     },
     {
       "title": "Status",
       "description": "Status of the violation",
       "provider": "carto",
       "domain": "phl.carto.com",
-      "dataset": "li_violations",
+      "dataset": "violations",
       "chartType": "pie",
-      "groupBy": "status"
+      "groupBy": "violationstatus"
     }
   ],
   [
@@ -76,7 +76,7 @@ metadata: http://metadata.phila.gov/#home/datasetdetails/5543ca7a5c4ae4cd66d3ff8
       "chartType": "table",
       "provider": "carto",
       "domain": "phl.carto.com",
-      "dataset": "li_violations",
+      "dataset": "violations",
       "columnsToHide": [
         "cartodb_id",
         "objectid",
