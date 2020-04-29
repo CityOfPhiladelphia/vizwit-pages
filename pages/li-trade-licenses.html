@@ -8,28 +8,7 @@ description: |
 download: https://www.opendataphilly.org/dataset/licenses-and-inspections-trade-licenses
 metadata: https://metadata.phila.gov/#home/datasetdetails/5543ca6e5c4ae4cd66d3ff55/representationdetails/5e9a0865a0da54001b1d5f49/
 ---
-[
-  [
-  {
-      "title": "Issue Date",
-      "description": "The date the license was issued.",
-      "provider": "carto",
-      "domain": "phl.carto.com",
-      "dataset": "trade_licenses",
-      "chartType": "datetime",
-      "groupBy": "date_trunc('month', issuedate)",
-      "triggerField": "issuedate",
-      "baseFilters": [
-        {
-          "field": "issuedate",
-          "expression": {
-            "type": "<=",
-            "value": "now()"
-          }
-        }
-      ]
-    }
-  ],
+
   [
     {
       "title": "License Type",
