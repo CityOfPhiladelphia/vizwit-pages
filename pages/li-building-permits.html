@@ -15,7 +15,7 @@ description: |
     please visit: http://www.phila.gov/li/Pages/PermitsCertificates.aspx
 
 download: https://www.opendataphilly.org/dataset/licenses-and-inspections-building-permits
-metadata: http://metadata.phila.gov/#home/datasetdetails/5543868920583086178c4f8f/representationdetails/55438add9b989a05172d0d97/
+metadata: https://metadata.phila.gov/#home/datasetdetails/5543868920583086178c4f8f/representationdetails/5e9a01ac801624001585ca11/
 ---
 [
   [
@@ -24,7 +24,7 @@ metadata: http://metadata.phila.gov/#home/datasetdetails/5543868920583086178c4f8
       "description": "The date and time that the permit was issued.",
       "provider": "carto",
       "domain": "phl.carto.com",
-      "dataset": "li_permits",
+      "dataset": "permits",
       "chartType": "datetime",
       "groupBy": "date_trunc('month', permitissuedate)",
       "triggerField": "permitissuedate"
@@ -35,7 +35,7 @@ metadata: http://metadata.phila.gov/#home/datasetdetails/5543868920583086178c4f8
       "title":  "By census tract",
       "provider": "carto",
       "domain": "phl.carto.com",
-      "dataset": "li_permits",
+      "dataset": "permits",
       "chartType": "choropleth",
       "groupBy": "censustract",
       "boundaries": "https://phl.carto.com/api/v2/sql?q=select+*+from+census_tracts_2010&format=geojson",
@@ -46,7 +46,7 @@ metadata: http://metadata.phila.gov/#home/datasetdetails/5543868920583086178c4f8
       "title":  "By city council district",
       "provider": "carto",
       "domain": "phl.carto.com",
-      "dataset": "li_permits",
+      "dataset": "permits",
       "chartType": "choropleth",
       "groupBy": "council_district",
       "boundaries": "https://phl.carto.com/api/v2/sql?q=select+*+from+gis_planning_council_districts_2016&format=geojson",
@@ -59,7 +59,7 @@ metadata: http://metadata.phila.gov/#home/datasetdetails/5543868920583086178c4f8
       "title":  "By city council district",
       "provider": "carto",
       "domain": "phl.carto.com",
-      "dataset": "li_permits",
+      "dataset": "permits",
       "chartType": "bar",
       "groupBy": "council_district",
       "boundaries": "https://phl.carto.com/api/v2/sql?q=select+*+from+gis_planning_council_districts_2016&format=geojson",
@@ -82,7 +82,7 @@ metadata: http://metadata.phila.gov/#home/datasetdetails/5543868920583086178c4f8
       "description": "Status of the permit.",
       "provider": "carto",
       "domain": "phl.carto.com",
-      "dataset": "li_permits",
+      "dataset": "permits",
       "chartType": "pie",
       "groupBy": "status"
     },
@@ -91,9 +91,9 @@ metadata: http://metadata.phila.gov/#home/datasetdetails/5543868920583086178c4f8
       "description": "Current owner of the property",
       "provider": "carto",
       "domain": "phl.carto.com",
-      "dataset": "li_permits",
+      "dataset": "permits",
       "chartType": "bar",
-      "groupBy": "ownername"
+      "groupBy": "opa_owner"
     }
   ],
   [
@@ -102,7 +102,7 @@ metadata: http://metadata.phila.gov/#home/datasetdetails/5543868920583086178c4f8
       "chartType": "table",
       "provider": "carto",
       "domain": "phl.carto.com",
-      "dataset": "li_permits",
+      "dataset": "permits",
       "columnsToHide": [
         "cartodb_id",
         "objectid",
