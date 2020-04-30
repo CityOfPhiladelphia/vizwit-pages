@@ -4,27 +4,48 @@ description: |
   <p>Address, date of abatement, and more for properties that
   have been cleaned and sealed by the L&I Clean & Seal Unit.</p>
 download: https://www.opendataphilly.org/dataset/licenses-and-inspections-clean-and-seal
-metadata: http://metadata.phila.gov/#home/datasetdetails/5543ca725c4ae4cd66d3ff68/representationdetails/57d16643de50fa92416f7c12/
+metadata: https://metadata.phila.gov/#home/datasetdetails/5543ca725c4ae4cd66d3ff68/representationdetails/5e9875c5e5e4450016073dd3/
 ---
 [
   [
     {
-      "title": "Clean & Seal Review Status",
-      "description": "The status of the Clean & Seal action. When a log is added, the action will be reviewed as incomplete until the action is completed. Once an action is taken (such as a Clean & Seal), then this action is reviewed and marked as Approved, An action can also be waived or conditionally approved.",
+      "title": "Work Order Completion Date",
+      "description": "When the work order was completed.",
       "provider": "carto",
       "domain": "phl.carto.com",
-      "dataset": "li_clean_seal",
+      "dataset": "clean_seal",
+      "chartType": "datetime",
+      "groupBy": "date_trunc('month', issuedate)",
+      "triggerField": "workordercompleteddate"
+    }
+],
+  [
+    {
+      "title": "Clean & Seal Review Status",
+      "description": "The status of the Clean & Seal work order.",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "clean_seal",
       "chartType": "pie",
-      "groupBy": "reviewstatus"
+      "groupBy": "workorderstatus"
     },
     {
-      "title": "Case Resolution",
-      "description": "If a case has been resolved, the L+I defined resolution code.",
+      "title": "Case Priority",
+      "description": "The L&I priority level for each violation found.",
       "provider": "carto",
       "domain": "phl.carto.com",
-      "dataset": "li_clean_seal",
+      "dataset": "clean_seal",
       "chartType": "pie",
-      "groupBy": "caseresolution"
+      "groupBy": "casepriority"
+      "baseFilters": [
+        {
+          "field": "casepriority",
+          "expression": {
+            "type": "is not",
+            "value": null
+         }
+       }
+     ]
     }
   ],
   [
@@ -32,7 +53,7 @@ metadata: http://metadata.phila.gov/#home/datasetdetails/5543ca725c4ae4cd66d3ff6
       "title":  "Census Tract",
       "provider": "carto",
       "domain": "phl.carto.com",
-      "dataset": "li_clean_seal",
+      "dataset": "clean_seal",
       "chartType": "choropleth",
       "groupBy": "censustract",
       "boundaries": "https://phl.carto.com/api/v2/sql?q=select+*+from+census_tracts_2010&format=geojson",
@@ -44,9 +65,9 @@ metadata: http://metadata.phila.gov/#home/datasetdetails/5543ca725c4ae4cd66d3ff6
       "description": "Current owner of the property",
       "provider": "carto",
       "domain": "phl.carto.com",
-      "dataset": "li_clean_seal",
+      "dataset": "clean_seal",
       "chartType": "bar",
-      "groupBy": "ownername"
+      "groupBy": "opa_owner"
     }
   ],
   [
@@ -55,7 +76,7 @@ metadata: http://metadata.phila.gov/#home/datasetdetails/5543ca725c4ae4cd66d3ff6
       "chartType": "table",
       "provider": "carto",
       "domain": "phl.carto.com",
-      "dataset": "li_clean_seal",
+      "dataset": "clean_seal",
       "columnsToHide": [
         "cartodb_id",
         "objectid",
