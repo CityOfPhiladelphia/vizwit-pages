@@ -48,6 +48,15 @@ metadata: https://metadata.phila.gov/#home/datasetdetails/5543ca6f5c4ae4cd66d3ff
       "chartType": "bar",
       "groupBy": "companyname"
     }
+    "baseFilters": [
+      {
+        "field": "companyname",
+        "expression": {
+          "type": "is not",
+          "value": null
+       }
+     }
+   ]
   ],
   [
     {
