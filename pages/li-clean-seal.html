@@ -17,6 +17,15 @@ metadata: https://metadata.phila.gov/#home/datasetdetails/5543ca725c4ae4cd66d3ff
       "chartType": "datetime",
       "groupBy": "date_trunc('month', casecompleteddate)",
       "triggerField": "casecompleteddate"
+      "baseFilters": [
+        {
+          "field": "casestatus",
+          "expression": {
+            "type": "is not",
+            "value": null
+         }
+       }
+     ]
     }
 ],
   [
