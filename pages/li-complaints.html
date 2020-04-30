@@ -62,7 +62,17 @@ metadata: https://metadata.phila.gov/#home/datasetdetails/5543ca6d5c4ae4cd66d3ff
       "domain": "phl.carto.com",
       "dataset": "complaints",
       "chartType": "pie",
-      "groupBy": "casestatus"
+      "groupBy": "casestatus",
+      "triggerField": "casestatus",
+      "baseFilters": [
+        {
+          "field": "current_week",
+          "expression": {
+            "type": "is not",
+            "value": null
+       	 }
+       }
+     ]
     }
   ],
   [
