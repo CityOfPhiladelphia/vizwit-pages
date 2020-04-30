@@ -1,10 +1,3 @@
----
-title: L&I Commercial Activity Licenses
-description: |
-  <p>Commercial Activity Licenses are required by entities doing business in the City of Philadelphia. Information includes license number, application date, issuance date, applicant information, business entity name and other related information.</p>
-download: https://www.opendataphilly.org/dataset/licenses-and-inspections-commercial-activity-licenses
-metadata: https://metadata.phila.gov/#home/datasetdetails/5543ca6f5c4ae4cd66d3ff59/representationdetails/5e9a06fb98cc42001606f331/
----
 [
   [
     {
@@ -46,7 +39,16 @@ metadata: https://metadata.phila.gov/#home/datasetdetails/5543ca6f5c4ae4cd66d3ff
       "domain": "phl.carto.com",
       "dataset": "com_act_licenses",
       "chartType": "bar",
-      "groupBy": "companyname"
+      "groupBy": "companyname",
+      "baseFilters": [
+      {
+        "field": "companyname",
+        "expression": {
+          "type": "is not",
+          "value": null
+       }
+     }
+   ]
     }
   ],
   [
