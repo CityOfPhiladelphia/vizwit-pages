@@ -1,0 +1,83 @@
+---
+title: L&I Complaints
+description: |
+  <p>Complaints that were entered via 311 or by an individual in the
+  department including a description of the complaint, the
+  priority/type of the complaint, date of scheduled investigation, who the
+  assigned inspector is, and what the outcome of the investigation was, if a case
+  or if a case is not required, as well as information about the source of the
+  request. </p>
+download: https://www.opendataphilly.org/dataset/licenses-and-inspections-service-requests
+metadata: https://metadata.phila.gov/#home/datasetdetails/5543ca6d5c4ae4cd66d3ff52/representationdetails/5e5d50e0fbc9650019b56025/
+---
+[
+  [
+    {
+      "title": "Complaint Date",
+      "description": "Date and time indicating when the complaint was logged.",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "complaints",
+      "chartType": "datetime",
+      "groupBy": "date_trunc('month', complaintdate)",
+      "triggerField": "complaintdate"
+    }
+  ],
+  [
+    {
+     "title":  "Census Tract",
+     "provider": "carto",
+     "domain": "phl.carto.com",
+     "dataset": "violations",
+     "chartType": "choropleth",
+     "groupBy": "censustract",
+     "boundaries": "https://phl.carto.com/api/v2/sql?q=select+*+from+census_tracts_2010&format=geojson",
+     "boundariesLabel": "namelsad10",
+     "boundariesId": "name10_padded"
+    },
+    {
+      "title": "Complaint Code Description",
+      "description": "Code description for the customer complaint.",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "complaints",
+      "chartType": "bar",
+      "groupBy": "complaintcodename"
+    }
+  ],
+  [
+    {
+      "title": "Complaint Status",
+      "description": "Status of the initial complaint.",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "complaints",
+      "chartType": "bar",
+      "groupBy": "complaintstatus"
+    },
+    {
+      "title": "Case Status",
+      "description": "The status of the case.",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "complaints",
+      "chartType": "pie",
+      "groupBy": "casestatus"
+    }
+  ],
+  [
+    {
+      "title": "Complaints",
+      "chartType": "table",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "complaints",
+      "columnsToHide": [
+        "cartodb_id",
+        "objectid",
+        "the_geom",
+        "the_geom_webmercator"
+      ]
+    }
+  ]
+]
