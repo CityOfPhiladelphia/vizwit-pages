@@ -17,6 +17,15 @@ metadata: https://metadata.phila.gov/#home/datasetdetails/5543ca785c4ae4cd66d3ff
       "chartType": "datetime",
       "groupBy": "date_trunc('month', investigationcompleted)",
       "triggerField": "investigationcompleted"
+      "baseFilters": [
+          {
+            "field": "investigationcompleted",
+            "expression": {
+              "type": ">=",
+              "value": "01/01/2002"
+            }
+          }
+        ]
     }
   ],
   [
