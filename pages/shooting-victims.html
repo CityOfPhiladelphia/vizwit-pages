@@ -27,9 +27,9 @@ metadata: http://metadata.phila.gov/#home/datasetdetails/5719551277d6389f3005a61
       "dataset": "shootings",
       "chartType": "choropleth",
       "groupBy": "dist",
-      "boundaries": "https://phl.carto.com/api/v2/sql?q=select+*+from+police_districts&format=geojson",
+      "boundaries": "https://phl.carto.com/api/v2/sql?q=select+*,+dist::text+as+dist_text+from+police_districts&format=geojson",
       "boundariesLabel": "dist",
-      "boundariesId": "dist_numc"
+      "boundariesId": "dist_text"
     },
     {
       "title": "Number of Shooting Victims by Officer Involved",
