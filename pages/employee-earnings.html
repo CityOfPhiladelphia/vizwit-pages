@@ -10,7 +10,7 @@ metadata: https://metadata.phila.gov/#home/datasetdetails/5543865520583086178c4e
 [
   [
     {
-      "title": "Total Salaries by Department",
+      "title": "Total base pay by department",
       "provider": "carto",
       "domain": "phl.carto.com",
       "dataset": "latest_employee_earnings",
@@ -31,7 +31,7 @@ metadata: https://metadata.phila.gov/#home/datasetdetails/5543865520583086178c4e
       "groupBy": "department_name",
       "triggerField": "department_name",
       "aggregateFunction": "sum",
-      "aggregateField": "round(CAST(overtime_gross_pay_qtd), 2)"
+      "aggregateField": "overtime_gross_pay_qtd"
     }
   ],
   [
