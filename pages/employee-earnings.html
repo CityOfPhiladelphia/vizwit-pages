@@ -1,0 +1,54 @@
+---
+title: Employee Earnings
+description: |
+  <p>Notes: Since employee counts fluctuate throughout the year, the sum of BASE_PAY does not reflect the total budgeted amount. Also,
+    blank values in the BASE_PAY column represents part-time, temporary, or seasonal employees paid
+    by the hour.</p>
+download: https://www.opendataphilly.org/dataset/employee-salaries-overtime
+metadata: https://metadata.phila.gov/#home/datasetdetails/5543865520583086178c4ebd/representationdetails/604284dc49a209001d746460/
+---
+[
+  [
+    {
+      "title": "Total Salaries by Department",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "latest_employee_earnings",
+      "chartType": "bar",
+      "groupBy": "department_name",
+      "triggerField": "department_name",
+      "aggregateFunction": "sum",
+      "aggregateField": "annual_salary"
+    }
+  ],
+  [
+    {
+      "title": "Total YTD Overtimes Gross by Department",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "latest_employee_earnings",
+      "chartType": "bar",
+      "groupBy": "department_name",
+      "triggerField": "department_name",
+      "aggregateFunction": "sum",
+      "aggregateField": "round(CAST(overtime_gross_pay_qtd), 2)"
+    }
+  ],
+  [
+    {
+      "title": "Employee Salaries",
+      "chartType": "table",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "latest_employee_earnings",
+      "order": "annual_salary desc",
+      "columnsToHide": [
+        "cartodb_id",
+        "objectid",
+        "the_geom",
+        "the_geom_webmercator",
+        "oid_"
+      ]
+    }
+  ]
+]
