@@ -9,25 +9,26 @@ metadata: https://metadata.phila.gov/#home/datasetdetails/5543ca725c4ae4cd66d3ff
 [
   [
     {
-      "title": "Work Order Completed Date",
-      "description": "When the work order was completed.",
+      "title": "Total base pay by department",
       "provider": "carto",
       "domain": "phl.carto.com",
-      "dataset": "clean_seal",
-      "chartType": "datetime",
-      "groupBy": "date_trunc('month', workordercompleteddate)",
-      "triggerField": "workordercompleteddate",
+      "dataset": "latest_employee_earnings",
+      "chartType": "bar",
+      "groupBy": "department_name",
+      "triggerField": "department_name",
+      "aggregateFunction": "sum",
+      "aggregateField": "annual_salary",
       "baseFilters": [
-        {
-          "field": "workordercompleteddate",
-          "expression": {
-          "type": "is not",
-            "value": null
-         }
-       }
+       {
+         "field": "workordercompleteddate",
+         "expression": {
+         "type": "is not",
+           "value": null
+        }
+      }
      ]
-  }
-],
+    }
+  ],
   [
     {
       "title": "Clean & Seal Review Status",
