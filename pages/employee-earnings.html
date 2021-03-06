@@ -19,13 +19,6 @@ metadata: https://metadata.phila.gov/#home/datasetdetails/5543865520583086178c4e
       "triggerField": "department_name",
       "aggregateFunction": "sum",
       "aggregateField": "annual_salary"
-      "baseFilters": [
-       {
-         "field": "annual_salary",
-         "expression": {
-         "type": "is not",
-           "value": null
-        }
     }
   ],
   [
@@ -38,7 +31,7 @@ metadata: https://metadata.phila.gov/#home/datasetdetails/5543865520583086178c4e
       "groupBy": "department_name",
       "triggerField": "department_name",
       "aggregateFunction": "sum",
-      "aggregateField": "overtime_gross_pay_qtd"
+      "aggregateField": "round(CAST(overtime_gross_pay_qtd as numeric), 2)
     }
   ],
   [
