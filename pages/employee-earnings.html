@@ -1,8 +1,8 @@
 ---
 title: Employee Earnings
 description: |
-  <p>Notes: Since employee counts fluctuate throughout the year, the sum of BASE_PAY does not reflect the total budgeted amount. Also,
-    blank values in the BASE_PAY column represents part-time, temporary, or seasonal employees paid
+  <p>Notes: Since employee counts fluctuate throughout the year, the sum of BASE_SALARY does not reflect the total budgeted amount. Also,
+    blank values in the BASE_SALARY column represents part-time, temporary, or seasonal employees paid
     by the hour.</p>
 download: https://www.opendataphilly.org/dataset/employee-salaries-overtime
 metadata: https://metadata.phila.gov/#home/datasetdetails/5543865520583086178c4ebd/representationdetails/604284dc49a209001d746460/
@@ -10,16 +10,15 @@ metadata: https://metadata.phila.gov/#home/datasetdetails/5543865520583086178c4e
 [
   [
     {
-      "title": "Total base pay by department",
+      "title": "Total base salary by department",
       "provider": "carto",
       "domain": "phl.carto.com",
       "dataset": "latest_employee_earnings",
-      "order": "annual_salary desc",
       "chartType": "bar",
       "groupBy": "department_name",
       "triggerField": "department_name",
       "aggregateFunction": "sum",
-      "aggregateField": "annual_salary"
+      "aggregateField": "annual_salary desc"
     }
   ],
   [
@@ -28,12 +27,11 @@ metadata: https://metadata.phila.gov/#home/datasetdetails/5543865520583086178c4e
       "provider": "carto",
       "domain": "phl.carto.com",
       "dataset": "latest_employee_earnings",
-      "order": "overtime_gross_pay_qtd desc",
       "chartType": "bar",
       "groupBy": "department_name",
       "triggerField": "department_name",
       "aggregateFunction": "sum",
-      "aggregateField": "overtime_gross_pay_qtd"
+      "aggregateField": "overtime_gross_pay_qtd desc"
     }
   ],
   [
