@@ -18,10 +18,10 @@ metadata: https://metadata.phila.gov/#home/datasetdetails/5543865520583086178c4e
       "groupBy": "department_name",
       "triggerField": "department_name",
       "aggregateFunction": "sum",
-      "aggregateField": "annual_salary",
+      "aggregateField": "base_salary",
       "baseFilters": [
         {
-          "field": "annual_salary",
+          "field": "base_salary",
           "expression": {
           "type": "is not",
             "value": null
@@ -59,7 +59,7 @@ metadata: https://metadata.phila.gov/#home/datasetdetails/5543865520583086178c4e
       "provider": "carto",
       "domain": "phl.carto.com",
       "dataset": "latest_employee_earnings",
-      "order": "annual_salary desc",
+      "order": "base_salary desc",
       "columnsToHide": [
         "cartodb_id",
         "objectid",
