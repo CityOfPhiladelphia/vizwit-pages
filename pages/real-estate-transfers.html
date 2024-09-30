@@ -25,7 +25,14 @@ metadata: http://metadata.phila.gov/#home/datasetdetails/5a04b8d39202605970a7457
             "type": ">=",
             "value": "12/06/1999"
           }
-        }
+        },
+        {
+          "field": "display_date",
+          "expression": {
+            "type": "<=",
+            "value": CURRENT_TIMESTAMP
+          }
+        }	
       ]
     }
   ],
