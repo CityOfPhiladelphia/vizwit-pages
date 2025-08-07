@@ -27,7 +27,16 @@ metadata: https://metadata.phila.gov/#home/datasetdetails/5543868920583086178c4f
       "dataset": "permits",
       "chartType": "datetime",
       "groupBy": "date_trunc('month', permitissuedate)",
-      "triggerField": "permitissuedate"
+      "triggerField": "permitissuedate",
+      "baseFilters": [
+        {
+          "field": "dispatch_date_time",
+          "expression": {
+            "type": "is not",
+            "value": null
+       	 }
+       }
+     ]
     }
   ],
   [
@@ -113,3 +122,4 @@ metadata: https://metadata.phila.gov/#home/datasetdetails/5543868920583086178c4f
     }
   ]
 ]
+
