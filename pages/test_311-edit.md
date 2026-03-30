@@ -45,7 +45,7 @@ metadata: http://metadata.phila.gov/#home/datasetdetails/5543864d20583086178c4e9
         {
           "field": "service_name",
           "expression": {
-            "type": "!=",
+            "type": "<>",
             "value": "Information Request"
           }
         }
