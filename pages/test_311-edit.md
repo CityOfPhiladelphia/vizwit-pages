@@ -48,10 +48,10 @@ metadata: http://metadata.phila.gov/#home/datasetdetails/5543864d20583086178c4e9
           "expression": {
           "type": "NOT_EQUALS",
           "value": "Information Request"
+        }
       }
-    }
-  ]
-}
+    ]
+  }
 ],
 [
     {
@@ -83,7 +83,7 @@ metadata: http://metadata.phila.gov/#home/datasetdetails/5543864d20583086178c4e9
       "dataset": "public_cases_fc",
       "chartType": "bar",
       "groupBy": "agency_responsible"
-    },
+    }
   ],
   [
     {
