@@ -94,6 +94,15 @@ metadata: http://metadata.phila.gov/#home/datasetdetails/5543864d20583086178c4e9
       "dataset": "public_cases_fc",
       "chartType": "pie",
       "groupBy": "status"
+    },
+    {
+      "title": "Status",
+      "description": "Status of the service request",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "public_cases_fc",
+      "chartType": "pie",
+      "groupBy": "status"
     }
   ],
   [
