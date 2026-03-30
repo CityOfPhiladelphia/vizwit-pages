@@ -84,6 +84,8 @@ metadata: http://metadata.phila.gov/#home/datasetdetails/5543864d20583086178c4e9
       "chartType": "bar",
       "groupBy": "agency_responsible"
     },
+  ],
+  [
     {
       "title": "Status",
       "description": "Status of the service request",
