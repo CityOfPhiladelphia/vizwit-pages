@@ -46,7 +46,7 @@ metadata: http://metadata.phila.gov/#home/datasetdetails/5543864d20583086178c4e9
         {
           "field": "service_name",
           "expression": {
-          "type": "NOT_EQUAL",
+          "type": "NOT_EQUALS",
           "value": "Information Request"
         }
       }
@@ -54,70 +54,61 @@ metadata: http://metadata.phila.gov/#home/datasetdetails/5543864d20583086178c4e9
   }
 ],
 [
-    {
-      "title": "Total Information Requests",
-      "description": "Total count of 311 infromation requests.",
-      "provider": "carto",
-      "domain": "phl.carto.com",
-      "dataset": "public_cases_fc",
-      "chartType": "bar",
-      "aggregateFunction": "count",
-      "valueFormat": "0,0",
-      "baseFilters": [
-        {
-          "field": "service_name",
-          "expression": {
-          "type": "EQUALS",
-          "value": "Information Request"
+  {
+    "title": "Total Information Requests",
+    "description": "Total count of 311 infromation requests.",
+    "provider": "carto",
+    "domain": "phl.carto.com",
+    "dataset": "public_cases_fc",
+    "chartType": "bar",
+    "aggregateFunction": "count",
+    "valueFormat": "0,0",
+    "baseFilters": [
+      {
+        "field": "service_name",
+        "expression": {
+        "type": "EQUALS",
+        "value": "Information Request"
         }
       }
-     ]
-    } 
-  ],
-  [
-    {
-      "title": "Agency Responsible",
-      "description": "The department in charge of the service request",
-      "provider": "carto",
-      "domain": "phl.carto.com",
-      "dataset": "public_cases_fc",
-      "chartType": "bar",
-      "groupBy": "agency_responsible"
+    ]
+  }
+],
+[
+  {
+    "title": "Agency Responsible",
+    "description": "The department in charge of the service request",
+    "provider": "carto",
+    "domain": "phl.carto.com",
+    "dataset": "public_cases_fc",
+    "chartType": "bar",
+    "groupBy": "agency_responsible"
     }
-  ],
-  [
-    {
-      "title": "Status",
-      "description": "Status of the service request",
-      "provider": "carto",
-      "domain": "phl.carto.com",
-      "dataset": "public_cases_fc",
-      "chartType": "pie",
-      "groupBy": "status"
-    },
-    {
-      "title": "Status",
-      "description": "Status of the service request",
-      "provider": "carto",
-      "domain": "phl.carto.com",
-      "dataset": "public_cases_fc",
-      "chartType": "pie",
-      "groupBy": "status"
-    }
-  ],
-  [
-    {
-      "title": "311 Service and Information Requests ",
-      "chartType": "table",
-      "provider": "carto",
-      "domain": "phl.carto.com",
-      "order": "requested_datetime desc",
-      "dataset": "public_cases_fc",
-      "columnsToHide": [
-        "cartodb_id",
-        "objectid",
-        "the_geom",
-        "the_geom_webmercator"
+],
+[
+  {
+    "title": "Status",
+    "description": "Status of the service request",
+    "provider": "carto",
+    "domain": "phl.carto.com",
+    "dataset": "public_cases_fc",
+    "chartType": "pie",
+    "groupBy": "status"
+  }
+],
+[
+  {
+    "title": "311 Service and Information Requests ",
+    "chartType": "table",
+    "provider": "carto",
+    "domain": "phl.carto.com",
+    "order": "requested_datetime desc",
+    "dataset": "public_cases_fc",
+    "columnsToHide": [
+      "cartodb_id",
+      "objectid",
+      "the_geom",
+      "the_geom_webmercator"
       ]
     }
   ]
