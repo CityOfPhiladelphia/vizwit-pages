@@ -45,7 +45,7 @@ metadata: http://metadata.phila.gov/#home/datasetdetails/5543864d20583086178c4e9
         {
           "field": "service_name",
           "expression": {
-            "type": "NOT_EQUALS",
+            "type": "!=",
             "value": "Information Request"
           }
         }
@@ -66,7 +66,7 @@ metadata: http://metadata.phila.gov/#home/datasetdetails/5543864d20583086178c4e9
         {
           "field": "service_name",
           "expression": {
-            "type": "EQUALS",
+            "type": "=",
             "value": "Information Request"
           }
         }
