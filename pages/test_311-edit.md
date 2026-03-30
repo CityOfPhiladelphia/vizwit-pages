@@ -51,7 +51,8 @@ metadata: http://metadata.phila.gov/#home/datasetdetails/5543864d20583086178c4e9
       }
     }
   ]
-},
+}
+],
 [
     {
       "title": "Total Information Requests",
