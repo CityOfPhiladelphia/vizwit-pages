@@ -61,7 +61,7 @@ metadata: http://metadata.phila.gov/#home/datasetdetails/5543864d20583086178c4e9
       "dataset": "public_cases_fc",
       "chartType": "callout",
       "aggregateFunction": "sum",
-      "aggregateField": "service_name"
+      "aggregateField": "service_name",
       "valueFormat": "0,0",
       "baseFilters": [
         {
