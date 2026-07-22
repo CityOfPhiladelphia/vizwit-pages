@@ -59,8 +59,9 @@ metadata: http://metadata.phila.gov/#home/datasetdetails/5543864d20583086178c4e9
       "provider": "carto",
       "domain": "phl.carto.com",
       "dataset": "public_cases_fc",
-      "chartType": "bar",
-      "aggregateFunction": "count",
+      "chartType": "callout",
+      "aggregateFunction": "sum",
+      "aggregateField": "service_name"
       "valueFormat": "0,0",
       "baseFilters": [
         {
