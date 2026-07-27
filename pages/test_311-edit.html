@@ -33,26 +33,6 @@ metadata: http://metadata.phila.gov/#home/datasetdetails/5543864d20583086178c4e9
       "boundariesId": "code"
     },
     {
-      "title": "Service Types (Excluding Information Requests)",
-      "description": "Count of 311 service request types, excluding Information Requests.",
-      "provider": "carto",
-      "domain": "phl.carto.com",
-      "dataset": "public_cases_fc",
-      "chartType": "bar",
-      "groupBy": "service_name",
-      "baseFilters": [
-        {
-          "field": "service_name",
-          "expression": {
-            "type": "<>",
-            "value": "Information Request"
-          }
-        }
-      ]
-    }
-  ],
-  [
-    {
       "title": "Total Information Requests",
       "description": "Total count of 311 Information Requests.",
       "provider": "carto",
@@ -74,6 +54,24 @@ metadata: http://metadata.phila.gov/#home/datasetdetails/5543864d20583086178c4e9
     }
   ],
   [
+    {
+      "title": "Service Types (Excluding Information Requests)",
+      "description": "Count of 311 service request types, excluding Information Requests.",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "public_cases_fc",
+      "chartType": "bar",
+      "groupBy": "service_name",
+      "baseFilters": [
+        {
+          "field": "service_name",
+          "expression": {
+            "type": "<>",
+            "value": "Information Request"
+          }
+        }
+      ]
+    },
     {
       "title": "Agency Responsible",
       "description": "The department in charge of the service request",
