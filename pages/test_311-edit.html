@@ -11,7 +11,21 @@ description: |
 download: https://www.opendataphilly.org/dataset/311-service-and-information-requests
 metadata: http://metadata.phila.gov/#home/datasetdetails/5543864d20583086178c4e98/representationdetails/5762e19fa237544b2ecfe722/
 ---
- [
+[
+  [
+    {
+      "title": "Requested Date",
+      "description": "The date when the service request was made. View how request volume has changed over time.  Select a time period to update the request summaries and filter all visualizations below.",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "public_cases_fc",
+      "chartType": "datetime",
+      "groupBy": "date_trunc('month', requested_datetime)",
+      "triggerField": "requested_datetime"
+    }
+  ]
+],
+[
    {
       "title": "Total Number of All Requests",
       "description": "Count of all 311 service request types, including Information Requests.",
@@ -32,20 +46,6 @@ metadata: http://metadata.phila.gov/#home/datasetdetails/5543864d20583086178c4e9
       "chartType": "pie",
       "groupBy": "status"
   },
-[
-  [
-    {
-      "title": "Requested Date",
-      "description": "The date when the service request was made. View how request volume has changed over time.  Select a time period to update the request summaries and filter all visualizations below.",
-      "provider": "carto",
-      "domain": "phl.carto.com",
-      "dataset": "public_cases_fc",
-      "chartType": "datetime",
-      "groupBy": "date_trunc('month', requested_datetime)",
-      "triggerField": "requested_datetime"
-    }
-  ]
-],
 [
     {
       "title": "Total Information Requests",
