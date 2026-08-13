@@ -22,8 +22,16 @@ metadata: http://metadata.phila.gov/#home/datasetdetails/5543864d20583086178c4e9
       "aggregateFunction": "count",
       "aggregateField": "service_name",
       "valueFormat": "0,0",
-    }
-  ],
+  },
+  {
+      "title": "Service Requests vs Information Requests",
+      "description": "Compare the amount of Information Requests and Service Requests. Select either section of pie chart to filter all other charts and the data table to just show either service or information requests.",
+      "provider": "carto",
+      "domain": "phl.carto.com",
+      "dataset": "public_cases_fc",
+      "chartType": "pie",
+      "groupBy": "status"
+  }
 [
   [
     {
