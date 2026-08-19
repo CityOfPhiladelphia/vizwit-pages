@@ -38,13 +38,43 @@ metadata: http://metadata.phila.gov/#home/datasetdetails/5543864d20583086178c4e9
     },
     {
       "title": "Service Requests vs Information Requests",
-      "description": "Compare the amount of Information Requests and Service Requests. Select either section of pie chart to filter all other charts and the data table.",
+      "description": "Compare the amount of Information Requests and Service Requests. Select either section of the pie chart to filter all other charts and the data table.",
       "provider": "carto",
       "domain": "phl.carto.com",
       "dataset": "public_cases_fc",
       "chartType": "pie",
-      "groupBy": "CASE WHEN service_name = 'Information Request' THEN 'Information Requests' ELSE 'Service Requests' END"
+      "groupBy": "category",
+      "valueLabels": {
+      "Information Request": "Information Requests",
+      "Service Request": "Service Requests"
+      },
+      "slices": [
+        {
+          "label": "Information Request",
+          "filters": [
+            {
+              "field": "service_name",
+              "expression": {
+                "type": "=",
+                "value": "Information Request"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Service Request",
+      "filters": [
+        {
+          "field": "service_name",
+          "expression": {
+            "type": "<>",
+            "value": "Information Request"
+          }
+        }
+      ]
     }
+  ]
+}
   ],
   [
     {
@@ -61,7 +91,6 @@ metadata: http://metadata.phila.gov/#home/datasetdetails/5543864d20583086178c4e9
       "domain": "phl.carto.com",
       "dataset": "public_cases_fc",
       "chartType": "bar",
-      "horizontal": true
       "groupBy": "status",
       "baseFilters": [
         {
