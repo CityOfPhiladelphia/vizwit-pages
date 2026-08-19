@@ -1,21 +1,8 @@
----
-title: 311 Service and Information Requests
-description: |
-  <p>This represents service and information requests since December 8th, 2014
-     submitted to Philly311 via the 311 mobile application, calls, walk-ins,
-     emails, the 311 website or social media.</p>
-  <p>Explore Philly311 request data using the interactive visualization below. 
-    Click a chart or map to filter all other charts and the data table.Combine multiple 
-    filters to narrow your results, hover to see exact counts, and use the search box on the data table below 
-    to find a specific record.</p>
-download: https://www.opendataphilly.org/dataset/311-service-and-information-requests
-metadata: http://metadata.phila.gov/#home/datasetdetails/5543864d20583086178c4e98/representationdetails/5762e19fa237544b2ecfe722/
----
 [
   [
     {
       "title": "Requested Date",
-      "description": "The date when the service request was made. View how request volume has changed over time.  Select a time period to update the request summaries and filter all visualizations below.",
+      "description": "View how request volume has changed over time. Select a time period to update the request summaries and filter all visualizations below.",
       "provider": "carto",
       "domain": "phl.carto.com",
       "dataset": "public_cases_fc",
@@ -23,10 +10,9 @@ metadata: http://metadata.phila.gov/#home/datasetdetails/5543864d20583086178c4e9
       "groupBy": "date_trunc('month', requested_datetime)",
       "triggerField": "requested_datetime"
     }
-  ]
-]
-[
-   {
+  ],
+  [
+    {
       "title": "Total Number of All Requests",
       "description": "Count of all 311 service request types, including Information Requests.",
       "provider": "carto",
@@ -36,40 +22,43 @@ metadata: http://metadata.phila.gov/#home/datasetdetails/5543864d20583086178c4e9
       "aggregateFunction": "count",
       "aggregateField": "service_name",
       "valueFormat": "0,0"
-  },
-  {
+    },
+    {
       "title": "Service Requests vs Information Requests",
-      "description": "Compare the amount of Information Requests and Service Requests. Select either section of pie chart to filter all other charts and the data table to just show either service or information requests.",
+      "description": "Compare the amount of Information Requests and Service Requests. Select either section of pie chart to filter all other charts and the data table.",
       "provider": "carto",
       "domain": "phl.carto.com",
       "dataset": "public_cases_fc",
       "chartType": "pie",
-      "groupBy": "status"
-  }
-[
+      "groupBy": "CASE WHEN service_name = 'Information Request' THEN 'Information Requests' ELSE 'Service Requests' END"
+    }
+  ],
+  [
     {
-      "title": "Total Information Requests",
-      "description": "Total count of 311 Information Requests.",
+      "chartType": "text",
+      "title": "Service Request Details",
+      "description": "The following charts do not include information requests data for readability. Filtering with these charts will exclude information requests from the dashboard."
+    }
+  ],
+  [
+    {
+      "title": "Status",
+      "description": "Compare the current status of service requests. Click a status to filter the visualizations and data table.",
       "provider": "carto",
       "domain": "phl.carto.com",
       "dataset": "public_cases_fc",
-      "chartType": "callout",
-      "aggregateFunction": "count",
-      "aggregateField": "service_name",
-      "valueFormat": "0,0",
+      "chartType": "bar_horizontal",
+      "groupBy": "status",
       "baseFilters": [
         {
           "field": "service_name",
-          "expression": {
-            "type": "=",
-            "value": "Information Request"
-          }
+          "expression": { "type": "<>", "value": "Information Request" }
         }
       ]
     },
     {
       "title": "Zip Code",
-      "description": "See the location of requests from across the city. Select a ZIP code to filter the visualizations and data table.", 
+      "description": "See the location of requests from across the city. Select a ZIP code to filter the visualizations and data table. This chart does not include information requests.",
       "provider": "carto",
       "domain": "phl.carto.com",
       "dataset": "public_cases_fc",
@@ -77,13 +66,19 @@ metadata: http://metadata.phila.gov/#home/datasetdetails/5543864d20583086178c4e9
       "groupBy": "zipcode",
       "boundaries": "https://phl.carto.com/api/v2/sql?q=select+*+from+zip_codes&format=geojson",
       "boundariesLabel": "code",
-      "boundariesId": "code"
+      "boundariesId": "code",
+      "baseFilters": [
+        {
+          "field": "service_name",
+          "expression": { "type": "<>", "value": "Information Request" }
+        }
+      ]
     }
   ],
   [
     {
-      "title": "Service Types (Excluding Information Requests)",
-      "description": "Count of 311 service request types, excluding Information Requests.",
+      "title": "Service Types",
+      "description": "Browse the different kinds of service request types. Click a request type to filter the visualizations and data table. This chart does not include information requests.",
       "provider": "carto",
       "domain": "phl.carto.com",
       "dataset": "public_cases_fc",
@@ -92,10 +87,7 @@ metadata: http://metadata.phila.gov/#home/datasetdetails/5543864d20583086178c4e9
       "baseFilters": [
         {
           "field": "service_name",
-          "expression": {
-            "type": "<>",
-            "value": "Information Request"
-          }
+          "expression": { "type": "<>", "value": "Information Request" }
         }
       ]
     }
@@ -103,21 +95,25 @@ metadata: http://metadata.phila.gov/#home/datasetdetails/5543864d20583086178c4e9
   [
     {
       "title": "Agency Responsible",
-      "description": "Find out which City departments handle each service type. Click a department to filter all other charts and the data table. ",
+      "description": "Find out which City departments handle each service type. Click a department to filter the visualizations and data table. This chart does not include information requests.",
       "provider": "carto",
       "domain": "phl.carto.com",
       "dataset": "public_cases_fc",
       "chartType": "bar",
-      "groupBy": "agency_responsible"
-    },
+      "groupBy": "agency_responsible",
+      "baseFilters": [
+        {
+          "field": "service_name",
+          "expression": { "type": "<>", "value": "Information Request" }
+        }
+      ]
+    }
+  ],
+  [
     {
-      "title": "Status",
-      "description": "Status of the service request. Compare the current status of service requests. Click a status to filter all other charts and the data table.",
-      "provider": "carto",
-      "domain": "phl.carto.com",
-      "dataset": "public_cases_fc",
-      "chartType": "pie",
-      "groupBy": "status"
+      "chartType": "text",
+      "title": "Philly311 Service and Information Requests Table",
+      "description": "View, search, and export all requests that match your selected filters."
     }
   ],
   [
