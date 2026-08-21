@@ -43,10 +43,10 @@ metadata: http://metadata.phila.gov/#home/datasetdetails/5543864d20583086178c4e9
       "domain": "phl.carto.com",
       "dataset": "public_cases_fc",
       "chartType": "pie",
-      "groupBy": "category",
+      "groupBy": "label",
       "valueLabels": {
-      "Information Request": "Information Requests",
-      "Service Request": "Service Requests"
+        "Information Request": "Information Requests",
+        "Service Request": "Service Requests"
       },
       "slices": [
         {
@@ -57,24 +57,24 @@ metadata: http://metadata.phila.gov/#home/datasetdetails/5543864d20583086178c4e9
               "expression": {
                 "type": "=",
                 "value": "Information Request"
-          }
-        }
-      ]
-    },
-    {
-      "label": "Service Request",
-      "filters": [
+              }
+            }
+          ]
+        },
         {
-          "field": "service_name",
-          "expression": {
-            "type": "<>",
-            "value": "Information Request"
-          }
+          "label": "Service Request",
+          "filters": [
+            {
+              "field": "service_name",
+              "expression": {
+                "type": "<>",
+                "value": "Information Request"
+              }
+            }
+          ]
         }
       ]
     }
-  ]
-}
   ],
   [
     {
