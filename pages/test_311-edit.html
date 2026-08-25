@@ -31,9 +31,39 @@ metadata: http://metadata.phila.gov/#home/datasetdetails/5543864d20583086178c4e9
       "domain": "phl.carto.com",
       "dataset": "public_cases_fc",
       "chartType": "pie",
-      "groupBy": "CASE WHEN service_name = 'Information Request' THEN 'Information Request' ELSE 'Service Request' END",
-}
-],
+      "groupBy": "label",
+      "valueLabels": {
+        "Information Request": "Information Requests",
+        "Service Request": "Service Requests"
+      },
+      "slices": [
+        {
+          "label": "Information Request",
+          "filters": [
+            {
+              "field": "service_name",
+              "expression": {
+                "type": "=",
+                "value": "Information Request"
+              }
+            }
+          ]
+        },
+        {
+          "label": "Service Request",
+          "filters": [
+            {
+              "field": "service_name",
+              "expression": {
+                "type": "<>",
+                "value": "Information Request"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
   [
     {
       "title": "Requested Date",
@@ -44,6 +74,13 @@ metadata: http://metadata.phila.gov/#home/datasetdetails/5543864d20583086178c4e9
       "chartType": "datetime",
       "groupBy": "date_trunc('month', requested_datetime)",
       "triggerField": "requested_datetime"
+    }
+  ],
+  [
+    {
+      "chartType": "text",
+      "title": "Service Request Details",
+      "description": "The following charts do not include information requests data for readability. Filtering with these charts will exclude information requests from the dashboard."
     }
   ],
   [
